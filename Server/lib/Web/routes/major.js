@@ -18,6 +18,7 @@
 
 var MainDB	 = require("../db");
 var JLog	 = require("../../sub/jjlog");
+var fetch    = require("../../sub/fetch");
 var Const	 = require("../../const");
 
 function obtain($user, key, value, term, addValue){
