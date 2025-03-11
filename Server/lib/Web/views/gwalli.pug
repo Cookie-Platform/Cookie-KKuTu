@@ -17,7 +17,7 @@
 extends layout
 
 block Subject
-	title *** JJO.KR 관리 페이지 ***
+	title 파이끄투 관리자 페이지지
 
 block JS
 	script(type="text/javascript", src="/js/in_admin.min.js")
@@ -25,8 +25,8 @@ block JS
 block Middle
 	fieldset
 		legend 자격
-		input#db-password(type='password', placeholder='암호')
-		input#db-lang(placeholder='테이블')
+		input#db-password(type='password', placeholder='암호 (global.js | pass)')
+		input#db-lang(placeholder='테이블 (ko | en)')
 	fieldset
 		legend 추가 요청 받기
 		div
@@ -77,13 +77,13 @@ block Middle
 				table
 					thead: tr
 						td #
-						td money
+						td money(핑)
 						td kkutu
-						td box
-						td equip
-						td nickname
+						td box(인벤토리)
+						td equip(착용아이템)
+						td nickname(닉네임)
 						td nickChanged
-						td exordial
+						td exordial(소개말)
 						td server
 						td lastLogin
 						td black
