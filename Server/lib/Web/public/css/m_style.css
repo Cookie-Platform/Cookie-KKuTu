@@ -23,12 +23,6 @@ body{
 	min-width: 360px;
 	font-family: 맑은 고딕, 돋움;
 }
-@font-face {
-    font-family: 'Bazzi';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/Bazzi.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 a{
 	color: inherit;
 	text-decoration: inherit;
