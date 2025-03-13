@@ -33,9 +33,11 @@ $(() => {
 ipcRenderer.on('server-status', (ev, code) => {
 	$stage.title.removeClass("server-off server-warn server-on");
 	switch(code){
-		case 0: $stage.title.addClass("server-off"); break;
+		case 0: $stage.title.addClass("Gameserver-off"); break;
 		case 1: $stage.title.addClass("server-warn"); break;
-		case 2: $stage.title.addClass("server-on"); break;
+		case 2: $stage.title.addClass("Gameserver-on"); break;
+		case 3: $stage.title.addClass("Webserver-off"); break;
+		case 4: $stage.title.addClass("Webserver-on"); break;
 	}
 });
 ipcRenderer.on('alert', (ev, msg) => {

@@ -22,8 +22,10 @@ const PKG = require("./package.json");
 const LANG = require("../language.json");
 const SETTINGS = require("../settings.json");
 const SCRIPTS = {
-	'server-on': startServer,
-	'server-off': stopServer,
+	'GameServerOn': startGameServer,
+	'GameServerOff': StopGameServer,
+	'WebServerOn': startWebServer,
+	'WebServerOff': StopWebServer,
 	'program-info': () => {
 		exports.send('alert', [
 			`=== ${PKG.name} ===`,
@@ -43,14 +45,24 @@ exports.MAIN_MENU = [
 		label: LANG['menu-server'],
 		submenu: [
 			{
-				label: LANG['menu-server-on'],
-				accelerator: "CmdOrCtrl+O",
-				click: () => exports.run("server-on")
+				label: LANG['menu-Gameserver-on'],
+				accelerator: "CmdOrCtrl+G+O",
+				click: () => exports.run("GameServerOn")
 			},
 			{
-				label: LANG['menu-server-off'],
-				accelerator: "CmdOrCtrl+P",
-				click: () => exports.run("server-off")
+				label: LANG['menu-Gameserver-off'],
+				accelerator: "CmdOrCtrl+G+P",
+				click: () => exports.run("GameServerOff")
+			},
+			{
+				label: LANG['menu-Webserver-on'],
+				acceleratore: "CmdOrCtrl+W+O",
+				click: () => exports.run("WebServerOn")
+			},
+			{
+				label: LANG['menu-Webserver-off'],
+				accelerator: "CmdOrCtrl+W+P",
+				click: () => exports.run("WebServerOff")
 			}
 		]
 	},
@@ -107,7 +119,8 @@ class ChildProcess{
 			this.process = null;
 
 			exports.send('log', 'e', msg);
-			exports.send('server-status', getServerStatus());
+			exports.send('server-status', getGameServerStatus());
+			exports.send('server-status', getWebServerStatus());
 		});
 	}
 	kill(sig){
@@ -116,24 +129,37 @@ class ChildProcess{
 }
 let webServer, gameServers;
 
-function startServer(){
-	stopServer();
+function startGameServer(){
+	StopGameServer();
 	if(SETTINGS['server-name']) process.env['KKT_SV_NAME'] = SETTINGS['server-name'];
-	
-	webServer = new ChildProcess('W', "node", `${__dirname}/lib/Web/cluster.js`, SETTINGS['web-num-cpu']);
+
 	gameServers = [];
-	
+
 	for(let i=0; i<SETTINGS['game-num-inst']; i++){
 		gameServers.push(new ChildProcess('G', "node", `${__dirname}/lib/Game/cluster.js`, i, SETTINGS['game-num-cpu']));
 	}
-	exports.send('server-status', getServerStatus());
+	exports.send('server-status', getGameServerStatus());
 }
-function stopServer(){
+function startWebServer(){
+	StopWebServer();
+	if(SETTINGS['server-name']) process.env['KKT_SV_NAME'] = SETTINGS['server-name'];
+	
+	webServer = new ChildProcess('W', "node", `${__dirname}/lib/Web/cluster.js`, SETTINGS['web-num-cpu']);
+	exports.send('server-status', getWebServerStatus());
+}
+function StopWebServer(){
 	if(webServer) webServer.kill();
+}
+function StopGameServer(){
 	if(gameServers) gameServers.forEach(v => v.kill());
 }
-function getServerStatus(){
-	if(!webServer || !gameServers) return 0;
-	if(webServer.process && gameServers.every(v => v.process)) return 2;
+function getWebServerStatus(){
+	if(!webServer) return 0;
+	if(webServer.process) return 2;
+	return 1;
+}
+function getGameServerStatus(){
+	if(!gameServers) return 0;
+	if(gameServers.every(v => v.process)) return 2;
 	return 1;
 }
