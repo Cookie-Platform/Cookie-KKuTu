@@ -2604,7 +2604,7 @@ function getAudio(k, url, cb){
 	function done(){
 		if(--$data._lsRemain == 0){
 			if(cb) cb();
-		}else loading($data._lsRemain + L['loadRemain'] + ")");
+		}else loading(L['loadRemain'] + $data._lsRemain + ")");
 	}
 	function AudioSound(url){
 		var my = this;
