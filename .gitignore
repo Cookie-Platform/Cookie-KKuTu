@@ -9,3 +9,4 @@ Server/lib/Web/public/js/**
 Server/lib/sub/auth.json
 Server/lib/sub/global.json
 .vscode
+.git
