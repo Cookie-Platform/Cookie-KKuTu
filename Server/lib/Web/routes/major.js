@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-
+const path = require("path");
 var MainDB	 = require("../db");
 var JLog	 = require("../../sub/jjlog");
 var GLOBAL	 = require("../../sub/global.json");
@@ -48,7 +48,9 @@ function consume($user, key, value, force){
 }
 
 exports.run = function(Server, page){
-
+Server.get("/privacy", (req, res) => {
+	res.sendFile(path.join(__dirname, "privacy.html"));
+});
 Server.get("/box", function(req, res){
 	if(req.session.profile){
 		/*if(Const.ADMIN.indexOf(req.session.profile.id) == -1){

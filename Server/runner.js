@@ -37,7 +37,7 @@ const SCRIPTS = {
 		].join('\n'));
 	},
 	'program-blog': () => exports.send('external', "http://blog.jjo.kr/"),
-	'program-repo': () => exports.send('external', "https://github.com/JJoriping/KKuTu"),
+	'program-repo': () => exports.send('external', "https://github.com/Studio-RSP/PieKKuTu.git"),
 	'exit': () => process.exit(0)
 };
 exports.MAIN_MENU = [
@@ -63,6 +63,16 @@ exports.MAIN_MENU = [
 				label: LANG['menu-Webserver-off'],
 				accelerator: "CmdOrCtrl+W+P",
 				click: () => exports.run("WebServerOff")
+			},
+			{
+				label: LANG['menu-server-on'],
+				accelerator: "CmdOrCtrl+O",
+				click: () => exports.run("StartServer")
+			},
+			{
+				label: LANG['menu-server-off'],
+				accelerator: "CmdOrCtrl+P",
+				click: () => exports.run("StopServer")
 			}
 		]
 	},
@@ -147,10 +157,25 @@ function startWebServer(){
 	webServer = new ChildProcess('W', "node", `${__dirname}/lib/Web/cluster.js`, SETTINGS['web-num-cpu']);
 	exports.send('server-status', getWebServerStatus());
 }
+function StartServer(){
+	StopServer();
+	if(SETTINGS['server-name']) process.env['KKT_SV_NAME'] = SETTINGS['server-name'];
+
+	gameServers = [];
+	webServer = new ChildProcess('W', "node", `${__dirname}/lib/Web/cluster.js`, SETTINGS['web-num-cpu']);
+	for(let i=0; i<SETTINGS['game-num-inst']; i++){
+		gameServers.push(new ChildProcess('G', "node", `${__dirname}/lib/Game/cluster.js`, i, SETTINGS['game-num-cpu']));
+	}
+	exports.send('server-status', getServerStatus());
+}
 function StopWebServer(){
 	if(webServer) webServer.kill();
 }
 function StopGameServer(){
+	if(gameServers) gameServers.forEach(v => v.kill());
+}
+function StopServer(){
+	if(webServer) webServer.kill();
 	if(gameServers) gameServers.forEach(v => v.kill());
 }
 function getWebServerStatus(){
@@ -162,4 +187,7 @@ function getGameServerStatus(){
 	if(!gameServers) return 0;
 	if(gameServers.every(v => v.process)) return 2;
 	return 1;
+}
+function getServerStatus(){
+	return getWebServerStatus() + getGameServerStatus();
 }
