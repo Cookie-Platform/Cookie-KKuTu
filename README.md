@@ -9,3 +9,8 @@
 ```
 와 같이 소스를 변경해주시길 바랍니다.
 아울러, 본 프로젝트에 원 끄투 레포지토리 파일은 GNU 공중 일반 라이선스, 파이끄투 자체 제작은 GNU 아페로 공중 일반 라이선스입니다.
+PR 소스도 GNU 공중 일반 라이선스를 따릅니다.
+
+### 제작자
+[JJoriping](https://github.com/JJoriping) - 원 레포지토리 제작자
+[cookedas1](https://github.com/cookedas1) - 파이끄투 제작자
