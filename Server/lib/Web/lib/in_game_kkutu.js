@@ -344,7 +344,10 @@ $(document).ready(function(){
 	});
 	$data.opts = $.cookie('kks');
 	if($data.opts){
-		applyOptions(JSON.parse($data.opts));
+		var opts = JSON.parse($data.opts);
+		opts.bv = $("#bgm-volume").val();
+		opts.ev = $("#effect-volume").val();
+		applyOptions(opts);
 	}
 	$(".dialog-head .dialog-title").on('mousedown', function(e){
 		var $pd = $(e.currentTarget).parents(".dialog");
@@ -702,8 +705,8 @@ $(document).ready(function(){
 	});
 	$stage.dialog.settingOK.on('click', function(e){
 		applyOptions({
-			mb: $("#mute-bgm").is(":checked"),
-			me: $("#mute-effect").is(":checked"),
+			bv: $("#bgm-volume").val(),
+			ev: $("#effect-volume").val(),
 			di: $("#deny-invite").is(":checked"),
 			dw: $("#deny-whisper").is(":checked"),
 			df: $("#deny-friend").is(":checked"),
@@ -1809,6 +1812,117 @@ $lib.Daneo.turnEnd = function(id, data){
 /**
  * Rule the words! KKuTu Online
  * Copyright (C) 2017 JJoriping(op@jjo.kr)
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+$lib.Sock.roundReady = function(data, spec){
+	var turn = data.seq ? data.seq.indexOf($data.id) : -1;
+	
+	clearBoard();
+	$data._relay = true;
+	$(".jjoriping,.rounds,.game-body").addClass("cw");
+	$data._va = [];
+	$data._lang = RULE[MODE[$data.room.mode]].lang;
+	$data._board = data.board;
+	$data._maps = [];
+	$data._roundTime = $data.room.time * 1000;
+	$data._fastTime = 10000;
+	$stage.game.items.hide();
+	$stage.game.bb.show();
+	$lib.Sock.drawDisplay();
+	drawRound(data.round);
+	if(!spec) playSound('round_start');
+	clearInterval($data._tTime);
+};
+$lib.Sock.turnEnd = function(id, data){
+	var $sc = $("<div>").addClass("deltaScore").html("+" + data.score);
+	var $uc = $("#game-user-" + id);
+	var key;
+	var i, j, l;
+	
+	if(data.score){
+		key = data.value;
+		l = key.length;
+		$data._maps.push(key);
+		for(i=0; i<l; i++){
+			$data._board = $data._board.replace(key.charAt(i), "　");
+		}
+		if(id == $data.id){
+			playSound('success');
+		}else{
+			playSound('mission');
+		}
+		$lib.Sock.drawDisplay();
+		addScore(id, data.score);
+		updateScore(id, getScore(id));
+		drawObtainedScore($uc, $sc);
+	}else{
+		stopBGM();
+		$data._relay = false;
+		playSound('horr');
+	}
+};
+$lib.Sock.drawMaps = function(){
+	var i;
+	
+	$stage.game.bb.empty();
+	$data._maps.sort(function(a, b){ return b.length - a.length; }).forEach(function(item){
+		$stage.game.bb.append($word(item));
+	});
+	function $word(text){
+		var $R = $("<div>").addClass("bb-word");
+		var i, len = text.length;
+		var $c;
+		
+		for(i=0; i<len; i++){
+			$R.append($c = $("<div>").addClass("bb-char").html(text.charAt(i)));
+			// if(text.charAt(i) != "？") $c.css('color', "#EEEEEE");
+		}
+		return $R;
+	}
+};
+$lib.Sock.drawDisplay = function(){
+	var $a = $("<div>").css('height', "100%"), $c;
+	var va = $data._board.split("");
+	var size = ($data._lang == "ko") ? "12.5%" : "10%";
+	
+	va.forEach(function(item, index){
+		$a.append($c = $("<div>").addClass("sock-char sock-" + item).css({ width: size, height: size }).html(item));
+		if($data._va[index] && $data._va[index] != item){
+			$c.html($data._va[index]).addClass("sock-picked").animate({ 'opacity': 0 }, 500);
+		}
+	});
+	$data._va = va;
+	$stage.game.display.empty().append($a);
+	$lib.Sock.drawMaps();
+};
+$lib.Sock.turnStart = function(data, spec){
+	var i, j;
+	
+	clearInterval($data._tTime);
+	$data._tTime = addInterval(turnGoing, TICK);
+	playBGM('jaqwi');
+};
+$lib.Sock.turnGoing = $lib.Jaqwi.turnGoing;
+$lib.Sock.turnHint = function(data){
+	playSound('fail');
+};
+
+/**
+ * Rule the words! KKuTu Online
+ * Copyright (C) 2017 JJoriping(op@jjo.kr)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -2090,117 +2204,6 @@ $lib.Drawing.diffNotValid = function (msg) {
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-$lib.Sock.roundReady = function(data, spec){
-	var turn = data.seq ? data.seq.indexOf($data.id) : -1;
-	
-	clearBoard();
-	$data._relay = true;
-	$(".jjoriping,.rounds,.game-body").addClass("cw");
-	$data._va = [];
-	$data._lang = RULE[MODE[$data.room.mode]].lang;
-	$data._board = data.board;
-	$data._maps = [];
-	$data._roundTime = $data.room.time * 1000;
-	$data._fastTime = 10000;
-	$stage.game.items.hide();
-	$stage.game.bb.show();
-	$lib.Sock.drawDisplay();
-	drawRound(data.round);
-	if(!spec) playSound('round_start');
-	clearInterval($data._tTime);
-};
-$lib.Sock.turnEnd = function(id, data){
-	var $sc = $("<div>").addClass("deltaScore").html("+" + data.score);
-	var $uc = $("#game-user-" + id);
-	var key;
-	var i, j, l;
-	
-	if(data.score){
-		key = data.value;
-		l = key.length;
-		$data._maps.push(key);
-		for(i=0; i<l; i++){
-			$data._board = $data._board.replace(key.charAt(i), "　");
-		}
-		if(id == $data.id){
-			playSound('success');
-		}else{
-			playSound('mission');
-		}
-		$lib.Sock.drawDisplay();
-		addScore(id, data.score);
-		updateScore(id, getScore(id));
-		drawObtainedScore($uc, $sc);
-	}else{
-		stopBGM();
-		$data._relay = false;
-		playSound('horr');
-	}
-};
-$lib.Sock.drawMaps = function(){
-	var i;
-	
-	$stage.game.bb.empty();
-	$data._maps.sort(function(a, b){ return b.length - a.length; }).forEach(function(item){
-		$stage.game.bb.append($word(item));
-	});
-	function $word(text){
-		var $R = $("<div>").addClass("bb-word");
-		var i, len = text.length;
-		var $c;
-		
-		for(i=0; i<len; i++){
-			$R.append($c = $("<div>").addClass("bb-char").html(text.charAt(i)));
-			// if(text.charAt(i) != "？") $c.css('color', "#EEEEEE");
-		}
-		return $R;
-	}
-};
-$lib.Sock.drawDisplay = function(){
-	var $a = $("<div>").css('height', "100%"), $c;
-	var va = $data._board.split("");
-	var size = ($data._lang == "ko") ? "12.5%" : "10%";
-	
-	va.forEach(function(item, index){
-		$a.append($c = $("<div>").addClass("sock-char sock-" + item).css({ width: size, height: size }).html(item));
-		if($data._va[index] && $data._va[index] != item){
-			$c.html($data._va[index]).addClass("sock-picked").animate({ 'opacity': 0 }, 500);
-		}
-	});
-	$data._va = va;
-	$stage.game.display.empty().append($a);
-	$lib.Sock.drawMaps();
-};
-$lib.Sock.turnStart = function(data, spec){
-	var i, j;
-	
-	clearInterval($data._tTime);
-	$data._tTime = addInterval(turnGoing, TICK);
-	playBGM('jaqwi');
-};
-$lib.Sock.turnGoing = $lib.Jaqwi.turnGoing;
-$lib.Sock.turnHint = function(data){
-	playSound('fail');
-};
-
-/**
- * Rule the words! KKuTu Online
- * Copyright (C) 2017 JJoriping(op@jjo.kr)
- * 
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
- */
-
 var spamWarning = 0;
 var spamCount = 0;
 // var smile = 94, tag = 35;
@@ -2249,11 +2252,11 @@ function showDialog($d, noToggle){
 function applyOptions(opt){
 	$data.opts = opt;
 	
-	$data.muteBGM = $data.opts.mb;
-	$data.muteEff = $data.opts.me;
+	$data.BGMVolume = parseFloat($data.opts.bv);
+	$data.EffectVolume = parseFloat($data.opts.ev);
 	
-	$("#mute-bgm").attr('checked', $data.muteBGM);
-	$("#mute-effect").attr('checked', $data.muteEff);
+	$("#bgm-volume").val($data.BGMVolume);
+	$("#effect-volume").val($data.EffectVolume);
 	$("#deny-invite").attr('checked', $data.opts.di);
 	$("#deny-whisper").attr('checked', $data.opts.dw);
 	$("#deny-friend").attr('checked', $data.opts.df);
@@ -2263,12 +2266,12 @@ function applyOptions(opt){
 	$("#only-unlock").attr('checked', $data.opts.ou);
 	
 	if($data.bgm){
-		if($data.muteBGM){
+		if($data.BGMVolume){
+			$data.bgm.volume = $data.BGMVolume;
+			$data.bgm = playBGM($data.bgm.key, true);
+		}else{
 			$data.bgm.volume = 0;
 			$data.bgm.stop();
-		}else{
-			$data.bgm.volume = 1;
-			$data.bgm = playBGM($data.bgm.key, true);
 		}
 	}
 }
@@ -4819,23 +4822,28 @@ function stopBGM(){
 }
 function playSound(key, loop){
 	var src, sound;
-	var mute = (loop && $data.muteBGM) || (!loop && $data.muteEff);
+	var bgmMuted = loop && $data.BGMVolume == 0;
+	var effectMuted = !loop && $data.EffectVolume == 0;
 	
 	sound = $sound[key] || $sound.missing;
 	if(window.hasOwnProperty("AudioBuffer") && sound instanceof AudioBuffer){
+		var gainNode = audioContext.createGain();
 		src = audioContext.createBufferSource();
 		src.startedAt = audioContext.currentTime;
 		src.loop = loop;
-		if(mute){
+		if(bgmMuted || effectMuted){
+			gainNode.gain.value = 0;
 			src.buffer = audioContext.createBuffer(2, sound.length, audioContext.sampleRate);
 		}else{
+			gainNode.gain.value = (loop ? $data.BGMVolume : $data.EffectVolume) || 0.5;
 			src.buffer = sound;
 		}
-		src.connect(audioContext.destination);
+		gainNode.connect(audioContext.destination);
+		src.connect(gainNode);
 	}else{
 		if(sound.readyState) sound.audio.currentTime = 0;
 		sound.audio.loop = loop || false;
-		sound.audio.volume = mute ? 0 : 1;
+		sound.audio.volume = mute ? 0 : ((loop ? $data.BGMVolume : $data.EffectVolume) || 0.5);
 		src = sound;
 	}
 	if($_sound[key]) $_sound[key].stop();
