@@ -52,6 +52,12 @@ var gameServers = [];
 WebInit.MOBILE_AVAILABLE = [
 	"portal", "main", "kkutu"
 ];
+function getIP(request){
+	return (request.headers['x-forwarded-for'] ||
+				   request.connection.remoteAddress ||
+				   request.socket.remoteAddress ||
+				   request.connection.socket.remoteAddress).split(',')[0];
+  };
 
 require("../sub/checkpub");
 
@@ -91,27 +97,35 @@ Server.use((req, res, next) => {
 		next();
 	}
 });
+Server.use(function(request, response, next){
+	let blockFinder;
+
+	if( blockFinder = require(__dirname+"/black.json").find(value=> value.ip==getIP(request)) )
+		page(request, response, {
+			"ip": blockFinder["ip"],
+			"reason": blockFinder["reason"]
+		});
+	else next();
+});
 if(GLOBAL.TRUST_PROXY) {
 	Server.set('trust proxy', GLOBAL.TRUST_PROXY);
 }
-/* use this if you want
-
 DDDoS = new DDDoS({
-	maxWeight: 6,
+	maxWeight: 10,
 	checkInterval: 10000,
 	rules: [{
 		regexp: "^/(cf|dict|gwalli)",
 		maxWeight: 20,
-		errorData: "429 Too Many Requests"
+		errorData: "429 Too Many Requests - 과도한 요청으로 인하여 요청이 거절되었습니다."
 	}, {
 		regexp: ".*",
-		errorData: "429 Too Many Requests"
+		errorData: "429 Too Many Requests - 과도한 요청으로 인하여 요정이 거절되었습니다."
 	}]
 });
 DDDoS.rules[0].logFunction = DDDoS.rules[1].logFunction = function(ip, path){
 	JLog.warn(`DoS from IP ${ip} on ${path}`);
 };
-Server.use(DDDoS.express());*/
+Server.use(DDDoS.express());
 
 WebInit.init(Server, true);
 DB.ready = function(){
