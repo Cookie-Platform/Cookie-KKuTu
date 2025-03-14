@@ -334,6 +334,8 @@
 		"explStrict": "방언, 옛말, 북한말을 제외한 명사 단어만 입력할 수 있습니다.",
 		"optSami": "3232",
 		"explSami": "세 글자 단어와 두 글자 단어를 번갈아가며 잇습니다.",
+		"optLeeturn": "리턴",
+		"explLeeturn": "쓴 단어를 다시 쓸 수 있습니다.",
 		"optNo2": "2글자 금지",
 		"explNo2": "두 글자 단어의 사용을 막습니다.",
 		"optUnlimited": "무한정",
