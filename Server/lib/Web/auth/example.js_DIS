@@ -42,3 +42,5 @@ module.exports.strategy = (process, MainDB, Ajae) => {
         process(req, accessToken, MainDB, $p, done);
     } // example naver
 }
+
+// 사용하지 않는 auth 파일은 auth_*.js_DIS로 변경한다.
