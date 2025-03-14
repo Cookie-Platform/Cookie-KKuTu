@@ -387,7 +387,7 @@ exports.init = function(_SID, CHAN){
 					return;
 				}
 				if($c.guest){
-					if(SID != "0"){
+					if(SID != "-1"){
 						$c.sendError(402);
 						$c.socket.close();
 						return;
@@ -635,10 +635,10 @@ function processClientRequest($c, msg) {
 			if (stable) {
 				if (msg.title.length > 20) stable = false;
 				if (msg.password.length > 20) stable = false;
-				if (msg.limit < 2 || msg.limit > 8) {
+				/* if (msg.limit < 2 || msg.limit > 8) {
 					msg.code = 432;
 					stable = false;
-				}
+				} */
 				if (msg.mode < 0 || msg.mode >= MODE_LENGTH) stable = false;
 				if (msg.round < 1 || msg.round > 10) {
 					msg.code = 433;
