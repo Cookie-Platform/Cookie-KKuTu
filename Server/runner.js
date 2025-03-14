@@ -26,6 +26,8 @@ const SCRIPTS = {
 	'GameServerOff': StopGameServer,
 	'WebServerOn': startWebServer,
 	'WebServerOff': StopWebServer,
+	'StartServer': StartServer,
+	'StopServer': StopServer,
 	'program-info': () => {
 		exports.send('alert', [
 			`=== ${PKG.name} ===`,
