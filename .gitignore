@@ -12,3 +12,5 @@ Server/lib/sub/auth.json
 Server/lib/sub/global.json
 .vscode
 .git
+.DS_Store
+KKUTU_ERROR.log
