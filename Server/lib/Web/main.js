@@ -24,7 +24,7 @@
 var WS		 = require("ws");
 var Express	 = require("express");
 var Exession = require("express-session");
-var Redission= require("connect-redis")(Exession);
+var Redission = require("connect-redis")(Exession);
 var Redis	 = require("redis");
 var Parser	 = require("body-parser");
 var DDDoS	 = require("dddos");
@@ -100,7 +100,7 @@ Server.use((req, res, next) => {
 Server.use(function(request, response, next){
 	let blockFinder;
 
-	if( blockFinder = require(__dirname+"/black.json").find(value=> value.ip==getIP(request)) )
+	if( blockFinder = require(__dirname+"/dddos.json").find(value=> value.ip==getIP(request)) )
 		page(request, response, {
 			"ip": blockFinder["ip"],
 			"reason": blockFinder["reason"]
