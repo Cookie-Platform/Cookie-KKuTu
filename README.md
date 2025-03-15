@@ -14,3 +14,4 @@
 파이끄투는 [JJoriping](https://github.com/JJoriping)님의 [KKuTu](https://github.com/JJoriping/KKuTu)를 기반으로 제작되었습니다.
 파이끄투는 [cookedas1](https://github.com/cookedas1)이 만들었습니다.
 파이끄투의 특수 규칙 "리턴" 기능과 D(D)oS 강화 기능은 [TyphoonDANAS](https://github.com/TyphoonDANAS)님의 [VelTu](https://github.com/TyphoonDANAS/VelTu)를 참고하여 제작되었습니다.
+파이끄투의 DDDoS 보안 기능은 [RevelabsKR](https://github.com/RevelabsKR)의 [KKuTu](https://github.com/RevelabsKR/KKuTu)를 참고하여 제작되었습니다.
