@@ -196,7 +196,7 @@ function processAdmin(id, value){
 				Object.keys(DIC).forEach(o => {
 					let user = DIC[o];
 					if((user && user.guest && user.place == 0) || (user && user.guest && (value == 'all'))) {
-					user.sendError(457);
+					user.sendError(459);
 						user.socket.close();
 					}
 				});
@@ -209,7 +209,7 @@ function processAdmin(id, value){
 				Object.keys(DIC).forEach(o => {
 					let user = DIC[o];
 					if((user && user.place == 0) || (user && (value == 'all'))) {
-					user.sendError(457);
+					user.sendError(459);
 						user.socket.close();
 					}
 				});
@@ -452,7 +452,7 @@ exports.init = function(_SID, CHAN){
 					}
 					/* Toggle Guest Entrance & User Kick [S] */
 					if (!allowGuestEnter) {
-						$c.sendError(456);
+						$c.sendError(458);
 						$c.socket.close();
 						return;
 					}
