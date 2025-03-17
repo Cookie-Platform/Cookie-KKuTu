@@ -58,12 +58,12 @@ equ{
 	z-index: 4;
 }
 #Top{
-	background-color: #7CC4F8;
+	background-color: #64f764;
 	background-image: none;
 }
 #Top .menu-btn{
 	color: #111111;
-	background-color: #7CC4F8;
+	background-color: #64f764;
 	background-image: none;
 }
 #Top .menu-sub-btn{ color: #222222; }
