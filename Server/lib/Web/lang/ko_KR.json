@@ -1,6 +1,6 @@
 {
 	"GLOBAL": {
-		"GPL": "<div style='color: #666;'>끄투를 새롭개! 파이끄투 모든 권리 보유. / 제작: <a target='_blank' href='https://discord.gg/N4yDbSYByD'>Studio RSP</a> / 문의: support@piekkutu.kro.kr <br>이 프로그램은 제품에 대한 어떠한 형태의 보증도 제공되지 않습니다.<br>이 프로그램은 자유 소프트웨어이며 배포 규정을 만족시키는 조건 아래 자유롭게 재배포할 수 있습니다.<br>이에 대한 자세한 사항은 본 프로그램의 구현을 담은 다음 깃허브 레포지토리에서 확인하십시오: <a target='_blank' href='https://github.com/Studio-RSP/PieKKuTu.git'>바로가기</a></div>",
+		"GPL": "<div style='color: #666;'>끄투를 새롭개! 파이끄투 모든 권리 보유. / 제작: <a target='_blank' href='https://discord.gg/N4yDbSYByD'>Cookie Platform</a> / 문의: support@piekkutu.kro.kr <br>이 프로그램은 제품에 대한 어떠한 형태의 보증도 제공되지 않습니다.<br>이 프로그램은 자유 소프트웨어이며 배포 규정을 만족시키는 조건 아래 자유롭게 재배포할 수 있습니다.<br>이에 대한 자세한 사항은 본 프로그램의 구현을 담은 다음 깃허브 레포지토리에서 확인하십시오: <a target='_blank' href='https://github.com/Studio-RSP/PieKKuTu.git'>바로가기</a></div>",
 
 		"CREATOR":	"개발자 블로그",
 		"HOME":		"FA{home}",
@@ -49,7 +49,7 @@
 		"SECOND":	"초",
 		"AM":		"오전",
 		"PM":		"오후",
-		"AD":		"광고(support@pie-kkutu.kro.kr",
+		"AD":		"광고(support@pie-kkutu.kro.kr)",
 		"LOADING":	"불러오는 중..",
 		"TEAM_100":	"파랑 팀",
 		"TEAM_200":	"빨강 팀",
