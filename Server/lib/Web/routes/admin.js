@@ -100,6 +100,24 @@ Server.get("/gwalli/kkutudb/:word", function(req, res){
 		res.send($doc);
 	});
 });
+Server.delete("/gwalli/deletedb/:word", function(req, res){
+	if(!checkAdmin(req, res)) return;
+	if(req.body.pw != GLOBAL.PASS) return res.sendStatus(400);
+			
+	var TABLE = MainDB.kkutu[req.query.lang];
+			
+	if(!TABLE) return res.sendStatus(400);
+	if(!TABLE.remove) return res.sendStatus(400);
+	
+		TABLE.remove([ '_id', req.params.word ]).on(function($res){
+				if($res) {
+				JLog.info(`Word '${req.params.word}' deleted by ${req.ip}`);
+					res.send({ success: true, message: `Word '${req.params.word}' deleted.` });
+				} else {
+					res.sendStatus(404);
+					}
+			});
+	});
 Server.get("/gwalli/kkututheme", function(req, res){
 	if(!checkAdmin(req, res)) return;
 	
