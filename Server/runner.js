@@ -38,7 +38,7 @@ const SCRIPTS = {
 			`Repository: ${PKG.repository}`
 		].join('\n'));
 	},
-	'program-blog': () => exports.send('external', "http://blog.jjo.kr/"),
+	'program-blog': () => exports.send('external', "https://discord.gg/N4yDbSYByDzx"),
 	'program-repo': () => exports.send('external', "https://github.com/Studio-RSP/PieKKuTu.git"),
 	'exit': () => process.exit(0)
 };

@@ -1,7 +1,7 @@
 # PieKKuTu
 [끄투를 새롭게! 파이끄투](pie-kkutu.kro.kr)
 
-본 프로젝트는 Studio RSP가 관리 제작합니다.
+본 프로젝트는 Cookie Platform 관리 제작합니다.
 
 본 레포지토리를 사용하실 경우 layout.pug 또는 ko.KR.json에
 ```
