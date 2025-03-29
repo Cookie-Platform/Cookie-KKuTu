@@ -144,8 +144,23 @@ span{
 	transition: color 300ms ease;
 }
 #account-info:hover{ color: #EEEEEE; }
+
+ 
+@keyframes scroller {
+	from {
+	  -moz-transform: translateX(100%);
+	  -webkit-transform: translateX(100%);
+	  transform: translateX(100%);
+	}
+	to {
+	  -moz-transform: translateX(-100%);
+	  -webkit-transform: translateX(-100%);
+	  transform: translateX(-100%);
+	}
+}
+
 #global-notice{
-	margin-top: 30px;
+	margin-top: 60px;
  	color: white;
 	text-align: center;
 	font-weight: bold;
