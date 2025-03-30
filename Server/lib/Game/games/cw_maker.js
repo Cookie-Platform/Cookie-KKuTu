@@ -60,7 +60,7 @@ DB.ready = function(){
 				}
 				console.log(s);
 			}
-			console.log("\007");
+			console.log("\x07");
 			for(i in data.map.queue){
 				s = data.map.queue[i];
 				t = data.board[`${s[0]},${s[1]}`];
