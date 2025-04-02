@@ -123,7 +123,7 @@ DDDoS = new DDDoS({
 	}]
 });
 DDDoS.rules[0].logFunction = DDDoS.rules[1].logFunction = function(ip, path){
-	JLog.warn(`DoS from IP ${ip} on ${path}`);
+	JLog.warn(`IP ${ip}에서 도스가 감지되었습니다.  (${path})`);
 };
 Server.use(DDDoS.express());
 
