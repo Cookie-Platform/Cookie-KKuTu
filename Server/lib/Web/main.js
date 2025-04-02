@@ -291,7 +291,7 @@ Server.get("/", function(req, res){
 			'IJP_EXCEPT': Const.IJP_EXCEPT,
 			'ogImage': "http://kkutu.kr/img/kkutu/logo.png",
 			'ogURL': "http://kkutu.kr/",
-			'ogTitle': "끄투를 새롭게! 파이끄투",
+			'ogTitle': "끄투를 새롭게! 투끄",
 			'ogDescription': "끝말잇기가 이렇게 박진감 넘치는 게임이었다니!"
 		});
 	}
