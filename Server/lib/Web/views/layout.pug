@@ -31,11 +31,6 @@ html
 			getObject(window.WebSocket, "send");
 			getObject(window.WebSocket, "onmessage");
 			getObject(window, "WebSocket");
-
-		block Search
-			meta(name='description', content=LANG['meta_desc'] || L('META_DESC'))
-			meta(name='keywords', content=LANG['meta_keys'] || L('META_KEYS'))
-
 		+PageHead()
 			block Preload
 		block CSS

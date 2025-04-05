@@ -284,11 +284,11 @@ function checkAdmin(req, res){
 		if(req.session.profile){
 			if(GLOBAL.ADMIN.indexOf(req.session.profile.id) == -1){
 				req.session.admin = false;
-				return res.send({ error: 400 }), false;
+				return res.render((path.resolve(__dirname, "..", "views", "error.pug"))), false;
 			}
 		}else{
 			req.session.admin = false;
-			return res.send({ error: 400 }), false;
+			return res.render((path.resolve(__dirname, "..", "views", "error.pug"))), false;
 		}
 	}
 	return true;
