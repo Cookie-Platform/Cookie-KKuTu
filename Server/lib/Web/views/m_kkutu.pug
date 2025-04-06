@@ -94,20 +94,20 @@ block Middle
 		button#LeaderboardBtn.for-lobby(style='display: none; background-color: #FFADD3;'): +FA('trophy')
 	+Dialog('SettingDiag', 300, 240, L('settingsText'))
 		div.dialog-bar
-			h4= L('mute')
+			h4.opt= L('mute')
 			+SettingOption('mute-bgm', L('bgm'))
 			+SettingOption('mute-effect', L('effect'))
 		div.dialog-bar
-			h4= L('denyReq')
+			h4.opt= L('denyReq')
 			+SettingOption('deny-invite', L('denyInvite'))
 			+SettingOption('deny-whisper', L('whisper'))
 			h4
 			+SettingOption('deny-friend', L('friendAdd'))
 		div.dialog-bar
-			h4= L('ingames')
+			h4.opt= L('ingames')
 			+SettingOption('auto-ready', L('autoReady'))
 		div.dialog-bar
-			h4= L('etc')
+			h4.opt= L('etc')
 			+SettingOption('sort-user', L('sortUser'), "width: 200px;")
 			h4
 			+SettingOption('only-waiting', L('onlyWaiting'), "width: 200px;")
@@ -136,7 +136,7 @@ block Middle
 			button#lb-prev= L('prevPage')
 	+Dialog('QuickDiag', 300, 230, L('quickRoom'))
 		div.dialog-bar
-			h4= L('gameMode')
+			h4.opt= L('gameMode')
 			select#quick-mode
 				- for(var i in locals.MODE)
 					option(value=Number(i))= L('mode' + locals.MODE[i])
@@ -149,19 +149,19 @@ block Middle
 		div.dialog-bar
 			h4(style='width: 100%; height: 20px;')#quick-queue
 		div.dialog-bar.tail-button
-			button#quick-ok= L('OK')
+			button.primaryBtn#quick-ok= L('OK')
 	+Dialog('RoomDiag', 300, 375)
 		div.dialog-bar
-			h4= L('roomTitle')
+			h4.opt= L('roomTitle')
 			input#room-title(placeholder=(nick || L('guest'))+L('roomDefault'), maxlength=20)
 		div.dialog-bar
-			h4= L('password')
+			h4.opt= L('password')
 			input#room-pw(type='password', placeholder=L('password'), maxlength=20)
 		div.dialog-bar
-			h4= L('userLimit')
+			h4.opt= L('userLimit')
 			input#room-limit(type='number', min=2, max=8, step=1, value=8)
 		div.dialog-bar
-			h4= L('gameMode')
+			h4.opt= L('gameMode')
 			select#room-mode
 				- for(var i in locals.MODE)
 					option(value=Number(i))= L('mode' + locals.MODE[i])
@@ -169,10 +169,10 @@ block Middle
 			h4
 			h4#game-mode-expl.dialog-bar-value(style='width: 100%; font-size: 11px;')
 		div.dialog-bar
-			h4= L('numRound')
+			h4.opt= L('numRound')
 			input#room-round(type='number', min=1, max=10, step=1, value=5)
 		div.dialog-bar
-			h4= L('roundTime')
+			h4.opt= L('roundTime')
 			select#room-time
 				option(value=10, style='color: #FF4444')
 				option(value=30)
@@ -187,9 +187,9 @@ block Middle
 			div.dialog-opt#room-injpick-panel
 				button#room-injeong-pick(style='font-size: 11px;')= L('pickInjeong')
 		div.dialog-bar.tail-button
-			button#room-ok= L('OK')
+			button.primaryBtn#room-ok= L('OK')
 	+Dialog('InjPickDiag', 200, 400, L('pickInjeong'))
-		h4= L('explInjPick')
+		h4.opt= L('explInjPick')
 		div.dialog-bar
 			button#injpick-all= L('injpickAll')
 			button#injpick-no= L('injpickNo')
@@ -211,10 +211,10 @@ block Middle
 						label(for=name)= LANG['theme_' + item]
 				- });
 		div.dialog-bar.tail-button
-			button#injpick-ok= L('OK')
+			button.primaryBtn#injpick-ok= L('OK')
 	+Dialog('PracticeDiag', 300, 135)
 		div.dialog-bar
-			h4= L('selectLevel')
+			h4.opt= L('selectLevel')
 			select#practice-level
 				option(value=0)= L('aiLevel0')
 				option(value=1)= L('aiLevel1')
@@ -222,7 +222,7 @@ block Middle
 				option(value=3)= L('aiLevel3')
 				option(value=4)= L('aiLevel4')
 		div.dialog-bar
-			h4= L('team')
+			h4.opt= L('team')
 			select#ai-team
 				option(value=0, selected)= L('teamSolo')
 				option(value=1) A
@@ -230,7 +230,7 @@ block Middle
 				option(value=3) C
 				option(value=4) D
 		div.dialog-bar.tail-button
-			button#practice-ok= L('OK')
+			button.primaryBtn#practice-ok= L('OK')
 	+Dialog('ResultDiag', 300, 420, L('gameResult'), true)
 		div.result-board
 		div.result-me
@@ -243,11 +243,11 @@ block Middle
 			div.result-me-score-text
 			div.expl.result-me-expl
 		div.dialog-bar.tail-button
-			button#result-ok= L('OK')
+			button.primaryBtn#result-ok= L('OK')
 			button#result-save= L('saveReplay')
 	+Dialog('DictionaryDiag', 300, 300, L('dict'))
 		div.dialog-bar
-			h4= L('wpHere')
+			h4.opt= L('wpHere')
 			input#dict-input(style='width: 183px;', placeholder=L('wpInput'), maxlength=200)
 		div.dialog-bar#dict-output(style='height: 195px; overflow-y: scroll; color: #BBBBBB; background-color: #111111;')
 		div.dialog-bar.tail-button
@@ -264,14 +264,14 @@ block Middle
 			button#invite-robot= L('inviteRobot')
 	+Dialog('RoomInfoDiag', 300, 365)
 		div.dialog-bar.room-info-head
-			h4= L('roomTitle')
+			h4.opt= L('roomTitle')
 			h4.dialog-bar-value.ellipse#ri-title
-			h4= L('gameMode')
+			h4.opt= L('gameMode')
 			h4.dialog-bar-value#ri-mode
-			h4= L('rounds')
+			h4.opt= L('rounds')
 			h4.dialog-bar-value#ri-round
 		div.dialog-bar(style='padding: 2px 0px; border-top: 1px dashed #CCC; margin: 2px 0px;')
-			h4= L('players')
+			h4.opt= L('players')
 			h4.dialog-bar-value#ri-limit
 		div.dialog-bar(style='height: 190px; overflow-y: scroll;')
 			div#ri-players(style='width: 100%;')
@@ -305,13 +305,13 @@ block Middle
 			button#kick-vote-yes= L('agree')
 	+Dialog('PurchaseDiag', 300, 205, L('purchase'))
 		div.dialog-bar
-			h4= L('pingBefore')
+			h4.opt= L('pingBefore')
 			h4.dialog-bar-value.purchase-ping#purchase-ping-before
 		div.dialog-bar
-			h4= L('pingCost')
+			h4.opt= L('pingCost')
 			h4.dialog-bar-value.purchase-ping#purchase-ping-cost
 		div.dialog-bar
-			h4= L('pingAfter')
+			h4.opt= L('pingAfter')
 			h4.dialog-bar-value.purchase-ping#purchase-ping-after
 		div.dialog-bar
 			h4#purchase-item-name(style='width: 100%; font-weight: bold;')
@@ -319,14 +319,14 @@ block Middle
 			h4#purchase-item-desc(style='width: 100%;')
 		div.dialog-bar.tail-button
 			button#purchase-no= L('NO')
-			button#purchase-ok= L('OK')
+			button.primaryBtn#purchase-ok= L('OK')
 	+Dialog('ReplayDiag', 300, 300, L('replay'))
 		input#replay-file(type='file', style='width: 288px;', accept=".kkt")
 		div.dialog-bar
-			h4= L('replayDate')
+			h4.opt= L('replayDate')
 			h4.dialog-bar-value#replay-date -
 		div.dialog-bar
-			h4= L('replayPlayers')
+			h4.opt= L('replayPlayers')
 			h4.dialog-bar-value#replay-players -
 		div.dialog-bar.tail-button
 			button#replay-view= L('replayView')
@@ -338,7 +338,7 @@ block Middle
 		div.jt-image#obtain-image(style='margin-left: 110px; width: 80px; height: 80px;')
 		div.dialog-bar#obtain-name(style='text-align: center;')
 		div.dialog-bar.tail-button
-			button#obtain-ok= L('OK')
+			button.primaryBtn#obtain-ok= L('OK')
 	+Dialog('HelpDiag', 300, 400, L('helpText'))
 		iframe#help-board(width=300, height=375)
 	+Product('UserList')

@@ -15,7 +15,7 @@
 - [cookedas1](https://github.com/cookedas1) - 달레끄투 제작자.
 - [TyphoonDANAS](https://github.com/TyphoonDANAS) - VelTu 제작자(참고 - DDDoS 보안 기능)
 - [RevelabsKR](https://github.com/RevelabsKR) - 끄투코리아 제작팀(참고 - DDDoS 보안 기능)
-- [d0ul](https://github.com/d0ul) - 플러스끄투 제작자(참고 - FA)
+- [d0ul](https://github.com/d0ul) - 플러스끄투 제작자(참고 - FA, 플끄 UI)
 
 ## 설치 전 참고
 - 이 방법은 Windows 환경을 기준으로 작성되었습니다.
