@@ -24,7 +24,7 @@ block CSS
 
 block Middle
 	+separator(5)
-	div(style='float: left; width: 100%;')
+	div(style='float: left; width: 100%; margin-top: 70px; ')
 		div(style='float: left; padding-left: 70px;')
 			h3#holder= L('title').replace(/\[.+?\]/g, "")
 			img#logo(src='/img/kkutu/short_logo.png')
@@ -48,5 +48,3 @@ block Middle
 	+separator(10)
 
 block Bottom
-	div.bottom-legal!= L('dictionarySupport')
-	div.bottom-legal!= L('etcSupport')

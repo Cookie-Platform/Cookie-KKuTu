@@ -399,13 +399,27 @@ $(document).ready(function(){
 	});
 	$stage.menu.newRoom.on('click', function(e){
 		var $d;
-		
+
 		$stage.dialog.quick.hide();
-		
+		// 무작위 방 제목을 선택하기 위한 배열
+		var roomTitles = [
+			'기체크로마토그래피질량분석법',
+			'즐거운 끝말잇기~!',
+			'DALLE KKUTU',
+			"레디 ㄱㄱㄱ!!",
+			"쉬워요! 같이 한판 해요~!",
+			"오끄감 채우는 방"
+		];
+
+		// 무작위 방 제목 선택
+		var randomTitle = roomTitles[Math.floor(Math.random() * roomTitles.length)];
+
+		$("#room-title").val(randomTitle)
 		$data.typeRoom = 'enter';
 		showDialog($d = $stage.dialog.room);
 		$d.find(".dialog-title").html(L['newRoom']);
 	});
+	
 	$stage.menu.setRoom.on('click', function(e){
 		var $d;
 		var rule = RULE[MODE[$data.room.mode]];

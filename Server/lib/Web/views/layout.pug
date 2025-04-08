@@ -47,11 +47,13 @@ html
 		div#Jungle
 			span#mobile= locals.mobile
 			span#summonerID= DATA._id
-			img#Background(src='/img/bg/' + (locals.bg || 'jpg-def.jpg'))
+			img#Background(src='/img/bg/winter.png')
 			block Jungle
 		div#Middle
 			block Middle
 		div#Bottom
 			block Bottom
-			div.bottom-legal 게임 저작권 정보는 '도움말' 패널을 참고하세요.
+			h4.opt(style='text-align: center;')!= L('dictionarySupport')
+			h4.opt(style='text-align: center;')!= L('etcSupport')
+			h4.opt(style='text-align: center;')!= L('GPL')
 			+separator(10)

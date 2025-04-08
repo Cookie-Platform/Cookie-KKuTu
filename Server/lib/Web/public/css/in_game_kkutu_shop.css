@@ -18,10 +18,10 @@
 
 .goods{
 	margin: 2px;
-	border-radius: 5px;
 	padding: 3px;
 	width: 240px;
 	height: 50px;
+	background-color: #ffffff;
 	box-shadow: 0px 1px 1px #777777;
 	cursor: pointer;
 }
@@ -33,14 +33,15 @@
 	.shop-type{
 		padding: 5px 0px;
 		border: 1px solid #AAAAAA;
-		border-radius: 5px;
+		border-radius: 0px;
 		margin-right: 3px;
-		width: 50px;
-		font-size: 11px;
+		width: 100px;
+ 		font-weight: 700;
+ 		font-size: 15px;
 		text-align: center;
 		cursor: pointer;
 		background-color: #DDDDDD;
-		transition: all 300ms ease;
+		transition: all 100ms ease;
 	}
 
 /* NIK */

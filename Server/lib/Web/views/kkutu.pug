@@ -128,7 +128,7 @@ block Middle
 			div#comm-friends
 		div.dialog-bar.tail-button
 			button#comm-friend-add= L('friendAdd')
-	+Dialog('LeaderboardDiag', 300, 450, L('leaderboard', false))
+	+Dialog('LeaderboardDiag', 300, 500, L('leaderboard', false))
 		div.dialog-bar(style='height: 350px;'): table#ranking(style='text-align: center;')
 			thead(style='font-weight: bold; background-color: #DDDDDD;'): tr
 				td(width=30) #
@@ -138,9 +138,10 @@ block Middle
 			tbody
 		div.dialog-bar: h4(style='width: 100%;')#lb-page
 		div.dialog-bar.tail-button
-			button#lb-next(style='margin-right: 6px;')!= L('nextPage')
-			button#lb-me= L('myRank')
 			button#lb-prev= L('prevPage')
+			button#lb-me= L('myRank')
+			button#lb-next(style='margin-right: 6px;')!= L('nextPage')
+
 	+Dialog('QuickDiag', 300, 270, L('quickRoom'))
 		div.dialog-bar
 			h4.opt!= L('gameMode')
@@ -254,7 +255,7 @@ block Middle
 				option(value=4) D
 		div.dialog-bar.tail-button
 			button.primaryBtn#practice-ok= L('OK')
-	+Dialog('ResultDiag', 400, 420, L('gameResult'), true)
+	+Dialog('ResultDiag', 400, 443, L('gameResult'), true)
 		div.result-board
 		div.result-me
 			div.result-me-score
@@ -300,7 +301,7 @@ block Middle
 			div#ri-players(style='width: 100%;')
 		div.dialog-bar.tail-button
 			button#room-info-join= L('join')
-	+Dialog('ProfileDiag', 300, 365)
+	+Dialog('ProfileDiag', 368, 500)
 		div.dialog-bar.profile-head
 		div.dialog-bar
 			h4(style='width: 83px;')!= L('place')
@@ -326,7 +327,8 @@ block Middle
 		div.dialog-bar.tail-button
 			button#kick-vote-no= L('disagree')
 			button#kick-vote-yes= L('agree')
-	+Dialog('PurchaseDiag', 300, 310, L('purchase', false))
+	+Dialog('PurchaseDiag', 300, 600, L('purchase', false))
+		h4.opt(style='font-size: 14px; text-align: center; color: #486AA3;')= "CookieCoin을 통해 구매한 핑이 먼저 차감됩니다."
 		div.dialog-bar
 			h4.opt!= L('pingBefore')
 			h4.dialog-bar-value.purchase-ping#purchase-ping-before
@@ -358,7 +360,7 @@ block Middle
 			h4.dialog-bar-value#replay-players -
 		div.dialog-bar.tail-button
 			button.primaryBtn#replay-view= L('replayView')
-	+Dialog('DressDiag', 600, 310, L('dress', false))
+	+Dialog('DressDiag', 600, 370, L('dress', false))
 		div.dialog-bar
 			h4(style='width: 150px;')!= L('myNickname')
 			input#dress-nickname(type='textfield', placeholder=L('myNicknameX'), style='width: 435px;', maxlength=12)
@@ -402,9 +404,6 @@ block Middle
 			button.primaryBtn#obtain-ok= L('OK')
 	+Dialog('HelpDiag', 1000, 540, L('helpText', false))
 		iframe#help-board(width=1000, height=350)
-		h4.opt(style='text-align: center; color: #486AA3;')!= L('dictionarySupport')
-		h4.opt(style='text-align: center; color: #486AA3;')!= L('etcSupport')
-		h4.opt(style='text-align: center; color: #486AA3;')!= L('GPL')
 	+Product('UserList')
 		div 불러오는 중
 	+Product('RoomList')
@@ -496,8 +495,6 @@ block Middle
 			div
 				+GraphBar('my-okg')
 				div.bar-text.my-okg-text
-				+Expl(true)
-					div(style='color: #CCCCCC;')!= L('okgExpl')
 		div.my-level
 		+GraphBar('my-gauge')
 		div.bar-text.my-gauge-text
