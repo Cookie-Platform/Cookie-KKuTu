@@ -15,16 +15,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-
+ @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
 @font-face {
 	font-family: NBGothic;
 	src: url(../media/NanumBarunGothicLight.woff);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
-
 body{
-	color: #EEEEEE;
+	background-color: #FFFFFF;
 	padding: 0px;
 	margin: 0px;
 	min-width: 480px;
@@ -63,20 +61,20 @@ span{
 .Menu{ min-width: 500px; }
 .Menu .menu-btn{
 	float: left;
-	padding: 7px 5px 5px 5px;
-	border: none;
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-	width: 100px;
-	height: 18px;
-	font-size: 15px;
-	text-align: center;
-	color: #47330D;
-	background-image: url('/img/topbg.png');
-	background-color: #DEAF56;
-	transition: all 200ms ease;
+    padding: 7px 5px 5px 5px;
+     border: none;
+     border-top-left-radius: 0px;
+     border-top-right-radius: 0px;
+     border-bottom-left-radius: 5px;
+     border-bottom-right-radius: 5px;
+     width: 125px;
+     height: 50px;
+     font-size: 20px;
+     text-align: center;
+     color: #47330D;
+     background-image: url(/img/topbg.png);
+     background-color: #DEAF56;
+     transition: all 200ms ease;
 }
 .Menu .menu-btn:hover{ padding-top: 12px; height: auto; box-shadow: 0px 2px 2px #141414; background-image: none; background-color: #EFC067; }
 .Menu .menu-btn:active{ color: #FFFFFF; background-color: #CD9E45; }
@@ -128,7 +126,7 @@ span{
 }
 	.autocomp-item{ margin: 1px 0px; }
 	.autocomp-item:hover, .autocomp-select{ color: #FFFFFF; background-color: rgba(50, 50, 50, 0.8); }
-#account{ float: right; margin: 1px; font-size: 11px; color: #444444; }
+#account{ float: right; margin-right: 30px; margin-top: 8px; font-size: 24px; color: #FFFFFF; }
 #account-setting{
 	float: left;
 	padding-top: 8px;
@@ -209,10 +207,10 @@ span{
 	background-color: #232323;
 }
 .product-title{
-	color: #CCCCCC;
-	padding: 3px;
-	border-bottom: 1px solid #333333;
-	margin-bottom: 5px;
+    color: #CCCCCC;
+     padding: 7px;
+     margin-bottom: 5px;
+ 	font-size: 17px;
 }
 .product-title i{
 	color: #FFFFFF;
@@ -295,15 +293,17 @@ span{
 #Top{
 	position: fixed;
 	width: 100%;
-	height: 30px;
-	box-shadow: 0px 2px 2px #111111;
+	height: 60px;
 	background-image: url('/img/topbg.png');
 	z-index: 5;
 }
 #Middle{
-	float: left;
-	margin-top: 50px;
-	width: 1010px;
+	margin-left: auto!important;
+     margin-right: auto!important;
+ 	max-width: 100em;
+ }
+ .middleFixer{
+ 	height: 70px;
 }
 #Bottom{
 	float: left;

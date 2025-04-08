@@ -684,7 +684,7 @@ function processRoom(data){
 				stopAllSounds();
 				$data.practicing = false;
 				$data._gaming = false;
-				$stage.box.room.height(360);
+				$stage.box.room.height(480);
 				playBGM('lobby');
 			}
 			$data.users[$data.id].game.ready = false;
@@ -799,7 +799,7 @@ function updateUI(myRoom, refresh){
 	$(".kkutu-menu button").hide();
 	for(i in $stage.box) $stage.box[i].hide();
 	$stage.box.me.show();
-	$stage.box.chat.show().width(790).height(190);
+	$stage.box.chat.show().css('width', 'calc(100% - 280px)').height(240);
 	$stage.chat.height(120);
 	
 	if(only == "for-lobby"){
@@ -848,8 +848,8 @@ function updateUI(myRoom, refresh){
 		$data._ar_first = true;
 		$stage.box.me.hide();
 		$stage.box.game.show();
-		$(".ChatBox").width(1000).height(140);
-		$stage.chat.height(70);
+		$(".ChatBox").css('width', '100%').height(240);
+ 		$stage.chat.height(170);
 		updateRoom(true);
 	}
 	$data._only = only;
@@ -928,7 +928,7 @@ function updateMe(){
 }
 function prettyTime(time){
 	var min = Math.floor(time / 60000) % 60, sec = Math.floor(time * 0.001) % 60;
-	var hour = Math.floor(time / 3600000);
+	var hour = Math.floor(time / 4800000);
 	var txt = [];
 	
 	if(hour) txt.push(hour + L['HOURS']);
@@ -1689,7 +1689,7 @@ function gameReady(){
 	$data.failCombo = 0;
 	$data._spectate = $data.room.game.seq.indexOf($data.id) == -1;
 	$data._gAnim = true;
-	$stage.box.room.show().height(360).animate({ 'height': 1 }, 500);
+	$stage.box.room.show().height(480).animate({ 'height': 1 }, 500);
 	$stage.box.game.height(1).animate({ 'height': 410 }, 500);
 	stopBGM();
 	$stage.dialog.resultSave.attr('disabled', false);
@@ -1698,7 +1698,7 @@ function gameReady(){
 	playSound('game_start');
 	forkChat();
 	addTimeout(function(){
-		$stage.box.room.height(360).hide();
+		$stage.box.room.height(480).hide();
 		$stage.chat.scrollTop(999999999);
 	}, 500);
 }
@@ -1869,7 +1869,7 @@ function replayTick(stay){
 function replayStop(){
 	delete $data.room;
 	$data._replay = false;
-	$stage.box.room.height(360);
+	$stage.box.room.height(480);
 	clearTimeout($data._rt);
 	updateUI();
 	playBGM('lobby');
@@ -2565,12 +2565,13 @@ function setRoomHead($obj, room){
 	var $rm;
 	
 	$obj.empty()
-		.append($("<h5>").addClass("room-head-number").html("["+(room.practice ? L['practice'] : room.id)+"]"))
+		.append($("<h5>").addClass("room-head-number").html("#"+(room.practice ? L['practice'] : room.id)+"]"))
 		.append($("<h5>").addClass("room-head-title").text(badWords(room.title)))
-		.append($rm = $("<h5>").addClass("room-head-mode").html(opts.join(" / ")))
-		.append($("<h5>").addClass("room-head-limit").html((mobile ? "" : (L['players'] + " ")) + room.players.length + " / " +room.limit))
-		.append($("<h5>").addClass("room-head-round").html(L['rounds'] + " " + room.round))
-		.append($("<h5>").addClass("room-head-time").html(room.time + L['SECOND']));
+		.append($rm = $("<h5>").addClass("room-head-mode").html(opts.join(" ") + "  |"))
+ 		.append($("<h5>").addClass("room-head-limit").html((mobile ? "" : (L['players'] + " ")) + room.players.length + " / " +room.limit + "  |"))
+ 		.append($("<h5>").addClass("room-head-round").html(L['rounds'] + " " + room.round+ "  |"))
+ 		.append($("<h5>").addClass("room-head-time").html(room.time + L['SECOND']))
+ 		.append($("<h5>").addClass("room-vendor").html("달레끄투 dalle.kro.kr"));
 		
 	if(rule.opts.indexOf("ijp") != -1){
 		$rm.append($("<div>").addClass("expl").html("<h5>" + room.opts.injpick.map(function(item){

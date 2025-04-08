@@ -99,7 +99,6 @@
 		$(window).on('resize', function(e){
 			size = [ $(window).width(), $(window).height() ];
 			
-			$("#Middle").css('margin-left', Math.max(0, size[0] * 0.5 - 500));
 			$("#Bottom").width(size[0]);
 		}).on('mousemove', function(e){
 			if(explSize == null) return;

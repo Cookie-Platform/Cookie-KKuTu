@@ -218,7 +218,8 @@ iframe{
 		.rip-form{ margin-top: 3px; width: calc(100% - 90px); }
 .UserListBox{
 	width: 200px;
-	height: 360px;
+	max-height: 480px;
+ min-height: 410px;
 }
 	.UserListBox div{ float: left; }
 	.UserListBox .product-body{ width: 190px; height: 330px; overflow-x: hidden; overflow-y: scroll; }
@@ -231,7 +232,8 @@ iframe{
 		.invite-item .users-name{ width: 270px; }
 .RoomListBox{
 	width: 790px;
-	height: 360px;
+	max-height: 480px;
+ min-height: 410px;
 }
 	.RoomListBox div{ float: left; }
 	.RoomListBox .product-body{ width: 780px; height: 330px; overflow-x: hidden; overflow-y: scroll; }
@@ -269,13 +271,15 @@ iframe{
 		.rooms-lock{ padding-top: 8px; width: 39px; text-align: center; font-size: 24px; }
 .ShopBox{
 	width: 790px;
-	height: 360px;
+	max-height: 480px;
+ min-height: 410px;
 }
 	.ShopBox div{ float: left; }
 	.ShopBox .product-body{ width: 780px; height: 330px; }
 .RoomBox{
 	width: 1000px;
-	height: 360px;
+	max-height: 480px;
+ min-height: 410px;
 }
 	.RoomBox .product-title{ height: 12px; }
 	.RoomBox .product-title h5{ float: left; }
@@ -704,7 +708,7 @@ iframe{
 	.purchase-not-enough{ color: #EE2222; }
 .MeBox{
 	width: 200px;
-	height: 190px;
+	height: 240px;
 	cursor: pointer;
 }
 	.MeBox div{ float: left; }

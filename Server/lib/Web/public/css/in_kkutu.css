@@ -25,8 +25,7 @@ equ{
 	z-index: 4;
 }
 #Intro img{
-	width: 1010px;
-	height: 604px;
+	width: 100vw;
 }
 	#version{
 		position: absolute;
@@ -37,10 +36,10 @@ equ{
 	}
 	#intro-text{
 		position: absolute;
-		top: 360px;
+		top: 480px;
 		left: 0px;
 		width: 100%;
-		font-size: 15px;
+		font-size: 30px;
 		text-align: center;
 		text-shadow: 0px 0px 3px #000000;
 	}
@@ -55,12 +54,13 @@ equ{
 	z-index: 5;
 }
 #Top{
-	background-color: #64f764;
-	background-image: none;
+	background: rgb(0,0,0);
+ background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
 }
 #Top .menu-btn{
-	color: #111111;
-	background-color: #64f764;
+	color: #FFFFFF;
+ 
+ 	background-color: #7CC4F800;
 	background-image: none;
 }
 #Top .menu-sub-btn{ color: #222222; }
@@ -109,7 +109,7 @@ iframe{
 #ReadyBtn:hover, #ReadyBtn.toggled{
 	animation: none;
 }
-.product-body{ font-size: 12px; }
+.product-body{ font-size: 16px; }
 .deltaScore{
 	width: 100%;
 	color: #2255FF;
@@ -130,14 +130,16 @@ iframe{
  }
  .kkutu-wrap{
  	max-width: 100rem;
-     margin-left: auto;
-     margin-right: auto;
+	 margin-left: auto;
+ 	margin-right: auto;
+ 	display: flex;
+ 	justify-content: space-between;
+ 	align-items: center;
  }
  .kkutu-center{
  	display: flex;
-     margin-left: auto;
-     margin-right: auto;
-     width: max-content;
+	 justify-content: center;
+ 	align-items: center;
  }
  
  .kkutu-menu button .fa {
@@ -155,11 +157,14 @@ iframe{
      width: 98px;
      height: 60px;
 }
-	.kkutu-menu button:hover{
+	.kkutu-menu .mainbtn:hover{
 		margin-top: -5px;
 		height: 65px;
  		color: #FFFFFF;
  		background: linear-gradient(180deg, rgba(39,134,255,1) 0%, rgba(21,169,255,1) 100%);
+	}
+	.kkutu-menu .icnbtn:hover{
+		background: #FFFFFF;
 	}
 	.kkutu-menu .toggled{
 		margin-top: 5px !important;
@@ -168,6 +173,15 @@ iframe{
 	}
 	.tiny-menu{
 		width: 60px !important;
+	}
+	#SettingBtn:hover{
+		color: #083344;
+	}
+	#CommunityBtn:hover{
+		color: #facc15;
+	}
+	#HelpBtn:hover{
+		color: #22d3ee;
 	}
 .dialog{
 	display: none;
@@ -199,7 +213,7 @@ iframe{
  		float: left;
  		margin-right: 5px;
  		width: 60px;
- 		/* font-size: 16px; */
+		 font-size: 17px;
  		height: 20px;}
  		.dialog-opt{ float: left; margin-right:20px; font-size: 18px;}
 	.tail-button{ margin-top: 7px; }
@@ -209,7 +223,7 @@ iframe{
 		background-color: #EAEAEA;
 		float: center;
 		margin-right: 5px;
-		width: 60px;
+		width: 75px;
 		height: 20px;
 	}
 		.primaryBtn{
@@ -266,15 +280,15 @@ iframe{
 	border-radius: 0px;
 	color: #111111;
 	box-shadow: 0px 2px 1px #DDDDDD;
-	background-color: #EEEEEE;
+	background-color: #eeeeeeb0;
+ 	backdrop-filter: blur(12px);
 }
 .product-title{
-	border-bottom-color: #CCCCCC;
-	border-radius: 5px;
-	color: #222222;
-	background-color: #DDDDDD;
+    color: #ffffff;
+     padding-left: 15px;
+     background-color: #000000c4;
 }
-.product-title i{ color: #111111; }
+.product-title i{ color: #ffffff; }
 .dialog-front{ z-index: 3; }
 #comm-friends div{ float: left; }
 	.cf-item{ margin: 2px 0px; width: 100%; }
@@ -308,30 +322,32 @@ iframe{
 		.rip-team{ margin: 3px 3px 0px 0px; width: 44px; text-align: center; }
 		.rip-form{ margin-top: 3px; width: calc(100% - 90px); }
 .UserListBox{
-	width: 200px;
-	height: 360px;
+	width: 260px;
+ 	max-height: 480px;
+ min-height: 480px;;
 }
 	.UserListBox div{ float: left; }
-	.UserListBox .product-body{ width: 190px; height: 330px; overflow-x: hidden; overflow-y: scroll; }
+	.UserListBox .product-body{ width: 250px; height: calc(100% - 50px); overflow-x: hidden; overflow-y: scroll; }
 	.users-item{ width: 190px; }
-		.users-image{ margin: 1px; width: 18px; height: 18px; }
-		.users-level{ margin: 1px; width: 18px; height: 18px; }
-		.users-name{ padding: 2px 0px 0px 3px; width: 147px; font-size: 13px; }
+	.users-image{ margin: 1px; width: 20px; height: 20px; }
+	.users-level{ margin: 1px; width: 20px; height: 20px; }
+	.users-name{ padding: 2px 0px 0px 3px; font-size: 16px; }
 		.users-item:hover{ cursor: pointer; background-color: #F4F4F4; }
 	.invite-item{ margin: 2px 0px; width: 100%; height: 20px; }
 		.invite-item .users-name{ width: 270px; }
 .RoomListBox{
-	width: 790px;
-	height: 360px;
+	width: calc(100% - 280px);
+ 	max-height: 480px;
+ min-height: 480px;
 }
 	.RoomListBox div{ float: left; }
-	.RoomListBox .product-body{ width: 780px; height: 330px; overflow-x: hidden; overflow-y: scroll; }
+	.RoomListBox .product-body{ width: calc(100% - 25px); height: 330px; overflow-x: hidden; overflow-y: scroll; }
 	.rooms-item{
 		padding: 5px;
-		border-radius: 10px;
+		/*border-radius: 10px;*/
 		margin: 3px;
 		width: 364px;
-		height: 64px;
+		/*height: 80px;*/
 		box-shadow: 0px 1px 1px #777777;
 		cursor: pointer;
 		background-color: #E4E4E4;
@@ -359,24 +375,26 @@ iframe{
 			.rooms-time{ padding-top: 5px; }
 		.rooms-lock{ padding-top: 8px; width: 39px; text-align: center; font-size: 24px; }
 .ShopBox{
-	width: 790px;
-	height: 360px;
+	width: calc(100% - 280px)!important;
+ 	max-height: 480px;
+ min-height: 480px;
 }
 	.ShopBox div{ float: left; }
 	.ShopBox .product-body{ width: 780px; height: 330px; }
 .RoomBox{
-	width: 1000px;
-	height: 360px;
+	min-width: 99.25%;
+     max-width: 100%;
 }
-	.RoomBox .product-title{ height: 12px; }
-	.RoomBox .product-title h5{ float: left; }
+.RoomBox .product-title{ height: 30px; }
+.RoomBox .product-title h5{ float: left; font-size: 20px;}
 		.room-head-modified{ animation: ModifiedBlink 1s ease 3; }
-		.room-head-number{ width: 35px; text-align: center; }
-		.room-head-title{ font-weight: bold; width: 505px; }
-		.room-head-mode{ margin-right: 5px; width: 255px; text-align: right; }
-		.room-head-limit{ width: 70px; text-align: center; }
-		.room-head-round{ width: 70px; text-align: center; }
-		.room-head-time{ width: 54px; text-align: center; }
+		.room-head-number{ text-align: center; margin-right: 5px; }
+ 		.room-head-title{ font-weight: bold; margin-right: 35px;}
+ 		.room-head-mode{ margin-right: 10px; text-align: right; }
+ 		.room-head-limit{ margin-right: 10px;text-align: center; }
+ 		.room-head-round{ margin-right: 10px;text-align: center; }
+ 		.room-head-time{ margin-right: 10px; text-align: center; }
+ 		.room-vendor{ float: right!important; }
 	.team-selector{
 		float: left;
 		padding-right: 3px;
@@ -388,7 +406,6 @@ iframe{
 		.team-button{
 			float: left;
 			padding-top: 20px;
-			border-radius: 10px;
 			margin: 2px 0px;
 			width: 100%;
 			height: 40px;
@@ -407,7 +424,6 @@ iframe{
 	.room-user{
 		float: left;
 		padding: 3px;
-		border-radius: 10px;
 		margin: 3px;
 		width: 224px;
 		height: 151px;
@@ -429,12 +445,13 @@ iframe{
 		.room-user-name{ padding: 9px 0px 0px 4px; font-weight: bold; }
 		.room-user:hover{ cursor: pointer; background-color: #EEEEEE; }
 .GameBox{
-	width: 1000px;
-	height: 410px;
+	width: 100%!important;
+ 	max-height: 480px;
+ 	min-height: 480px;
 	background-image: url('/img/kkutu/gamebg.png');
 }
-	.GameBox .product-title{ height: 12px; }
-	.GameBox .product-title h5{ float: left; }
+	.GameBox .product-title{ height: 30px; }
+	.GameBox .product-title h5{ float: left; font-size:20px; }
 	.GameBox div{ float: left; }
 	.GameBox .product-body{ padding-top: 0px; }
 	.game-replay-controller{ float: right !important; width: 100px; }
@@ -694,18 +711,17 @@ iframe{
 		.rounds-current{ color: #FFFF3B; font-size: 16px; }
 		.round-effect{ animation: RoundEffect 0.8s ease 1; }
 	.history-holder{
-		width: 990px;
-		height: 40px;
+		width: 99%;
+ 		height: 60px;
 		overflow: hidden;
 	}
 		.history{
-			width: 1200px;
-			height: 42px;
+			width: 100%;
+ 			height: 57px;
 		}
 			.history-item{
-				height: 28px;
+				height: 100%;
 				padding: 4px 0px;
-				border-radius: 10px;
 				margin: 3px;
 				color: #EEEEEE;
 				text-align: center;
@@ -719,8 +735,7 @@ iframe{
 			}
 			.history-class{
 				padding: 1px;
-				border-radius: 5px;
-				margin-left: 4px;
+				padding: 1px 4px 1px 4ch;
 				font-size: 11px;
 				color: #111111;
 				background-color: #77AAFF;
@@ -762,17 +777,15 @@ iframe{
 		}
 	.game-body{
 		margin: 0px -1px;
-		width: 992px;
-		height: 180px;
+		padding: 1px 4px 1px 4ch;
 	}
 	.cw.game-body{ position: relative; top: -378px; left: 660px; width: 334px; }
 		.game-user{
 			padding: 1px;
 			border: 3px solid #DDDDDD;
-			border-radius: 10px;
 			margin: 13px 3px 3px 3px;
-			width: 110px;
-			height: 167px;
+			width: 150px;
+ 			height: 200px;
 			box-shadow: 0px 1px 1px #141414;
 			background-color: #DDDDDD;
 			transition: all 300ms ease;
@@ -796,12 +809,21 @@ iframe{
 			background-color: #9fd1f1;
 		}
 		.game-user-bomb{ border-color: #FF6666; }
-			.game-user-image{ margin: 3px 5px; width: 100px; height: 100px; }
+		.game-user-image{ margin: 3px 15px; width: 120px; height: 120px; }
 			.game-user-level{ margin: 1px; width: 18px; height: 18px; }
 			.game-user-name{ padding-left: 3px; margin: 3px 0px; width: 87px; height: 20px; font-size: 15px; }
 			.game-user-score{ padding: 0px 5px; border-radius: 10px; width: 100px; font-size: 30px; font-weight: bold; }
 				.game-user-score-char{ width: 20px; text-align: center; }
-			.cw .game-user-score{ padding-top: 3px; font-size: 15px; }
+				.game-user-score{ padding: 0px 5px; border-radius: 10px;
+					align-items: center;
+					display: flex;
+					justify-content: center;
+					width: 92%;font-size: 30px; font-weight: bold; }
+				.game-user-title{align-items: center;
+		display: flex;
+		justify-content: center;
+		width: 100%;}
+	
 	#ResultDiag .dialog-body div{ float: left; }
 		.result-board{
 			width: 400px;
@@ -809,7 +831,6 @@ iframe{
 		}
 			.result-board-item{
 				padding: 5px;
-				border-radius: 5px;
 				margin: 1px;
 				width: 388px;
 				height: 20px;
@@ -869,12 +890,13 @@ iframe{
 				.result-me-current-bar{ background-image: url('/img/kkutu/currentbar.png'); }
 				.result-me-bonus-bar{ background-image: url('/img/kkutu/bonusbar.png'); }
 				.result-me-score-text{
-					margin-top: -32px;
-					margin-left: 80px;
-					width: 308px;
-					color: #EEEEEE;
-					text-align: center;
-					text-shadow: 0px 1px 1px #141414;
+					margin-top: -55px;
+     margin-left: 80px;
+     width: 308px;
+     color: #EEEEEE;
+     text-align: center;
+     text-shadow: 0px 1px 1px #141414;
+     font-size: 20px;
 				}
 			.result-me-expl h4{ color: #FFFF44; }
 			.result-me-expl div{ margin-bottom: 4px; width: 140px; }
@@ -885,25 +907,27 @@ iframe{
 		.kick-vote-time .graph-bar{ background-color: #FF6D6D; }
 	.purchase-not-enough{ color: #EE2222; }
 .MeBox{
-	width: 200px;
-	height: 190px;
+	width: 260px;
+ 	height: 240px;
 	cursor: pointer;
 }
 	.MeBox div{ float: left; }
 	.bar-text{ color: #EEEEEE; text-align: center; text-shadow: 0px 1px 1px #141414; }
 	.my-image{ width: 80px; height: 80px; }
-	.my-stat{ padding-left: 5px; width: 105px; }
-		.my-stat-level{ margin: 1px; width: 18px; height: 18px; }
-		.my-stat-name{ padding-top: 3px; padding-left: 4px; width: 76px; height: 17px; font-weight: bold; }
+	.my-stat{ padding-left: 5px; width: calc(100% - 85px); }
+ 		.my-stat-level{ margin: 1px; width: 22px; height: 22px; }
+ 		.my-stat-name{ padding-left: 4px;font-weight: bold; }
 		.my-stat-record{ margin-top: 3px; width: 100%; }
 		.my-stat-ping{ margin-top: 3px; width: 100%; }
-		.my-okg{ border-radius: 5px; margin-top: 3px; width: 100%; height: 20px; overflow: hidden; background-color: #995511; }
+		.my-okg{ margin-top: 3px; width: 167px; height: 20px; overflow: hidden; background-color: #995511; }
 			.my-okg .graph-bar{ background-color: #FFBB44; }
-		.my-okg-text{ margin-top: -15px; width: 100px; }
-	.my-level{ margin: 13px 0px; width: 190px; font-size: 15px; text-align: center; }
-	.my-gauge{ border-radius: 10px; margin: 3px 0px; width: 190px; height: 30px; overflow: hidden; background-color: #333333; }
+			.my-okg-text{ margin-top: -20px; width: 100%; }
+			.my-level{ margin: 13px 0px; width: 100%; font-size: 15px; text-align: center; }
+			.my-gauge{ margin: 3px 0px; width: 250px; height: 5px; overflow: hidden; background-color: #333333; }
 		.my-gauge .graph-bar{ background-image: url('/img/kkutu/scorebar.png'); }
-	.my-gauge-text{ margin-top: -25px; width: 190px; }
+		.my-gauge-text{     width: 100%;
+			text-shadow: none;
+			color: #000; }
 	.category-filter{
 		border-radius: 5px;
 		text-align: center;
@@ -958,9 +982,6 @@ iframe{
 			.cf-rew-rate{ padding-top: 6px; width: 50px; text-align: right; }
 	#cf-cost{ text-align: center; background-color: #DDDDDD; }
 	.cf-composable{ background-color: #FFAD31; }
-.ChatBox{
-	width: 1000px;
-}
 	.chat-balloon{
 		position: absolute;
 		width: 123px;
@@ -991,6 +1012,7 @@ iframe{
 #Chat{
 	width: 100%;
 	overflow-y: scroll;
+	height: 150px!important;
 }
 #Talk{
 	float: left;
@@ -999,7 +1021,7 @@ iframe{
 	border-bottom-right-radius: 0px;
 	margin-top: 5px;
 	width: calc(100% - 82px);
-	height: 20px;
+	font-size: 16px;
 }
 #ChatBtn{
 	float: left;
@@ -1008,7 +1030,7 @@ iframe{
 	border-bottom-left-radius: 0px;
 	margin-top: 5px;
 	width: 60px;
-	height: 20px;
+	font-size: 16px;
 }
 	#Chat hr, #chat-log-board hr{
 		padding-top: 0px;
@@ -1082,7 +1104,7 @@ iframe{
 }
 @keyframes ModifiedBlink{
 	0%		{ background-color: #FFFF44; }
-	100%	{ background-color: #DDDDDD; }
+	100%	{ background-color: #00000000; }
 }
 @keyframes LvUpBlink{
 	0%		{ margin-top: 6px; }

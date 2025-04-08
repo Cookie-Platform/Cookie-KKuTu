@@ -53,11 +53,5 @@ html
 			block Middle
 		div#Bottom
 			block Bottom
-			div.bottom-legal
-				if locals.as_pc
-					a(href='?')= L('AS_MOBILE')
-				br
-				a.bottom-contact(href='http://blog.jjo.kr/', target='_blank')= L('CREATOR')
-				a.bottom-contact(href='mailto:op@jjo.kr', target='_blank') Contact op@jjo.kr
-			div.bottom-legal!= L('GPL')
+			div.bottom-legal 게임 저작권 정보는 '도움말' 패널을 참고하세요.
 			+separator(10)

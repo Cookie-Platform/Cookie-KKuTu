@@ -28,14 +28,14 @@ mixin GameOption(key, prefix)
 	- var sid = name.toLowerCase();
 	div.dialog-opt(id=`${prefix}-${sid}-panel`)
 		input.game-option(id=`${prefix}-${sid}`, type='checkbox', style='margin-top: 5px; width: auto;')
-		label(for=`${prefix}-${sid}`)= L(`opt${name}`)
+		label(for=`${prefix}-${sid}`)!= L(`opt${name}`)
 		+Expl(true)
 			div!= L(`expl${name}`)
 
 mixin SettingOption(id, text, st)
 	div.dialog-opt(style=st || "")
 		input(id=id, type='checkbox', style='margin-top: 5px; width: auto;')
-		label(for=id)= text
+		label(for=id)!= text
 
 block Subject
 	title= L('title')
@@ -94,20 +94,20 @@ block Middle
 		button#LeaderboardBtn.for-lobby(style='display: none; background-color: #FFADD3;'): +FA('trophy')
 	+Dialog('SettingDiag', 300, 240, L('settingsText'))
 		div.dialog-bar
-			h4.opt= L('mute')
+			h4.opt!= L('mute')
 			+SettingOption('mute-bgm', L('bgm'))
 			+SettingOption('mute-effect', L('effect'))
 		div.dialog-bar
-			h4.opt= L('denyReq')
+			h4.opt!= L('denyReq')
 			+SettingOption('deny-invite', L('denyInvite'))
 			+SettingOption('deny-whisper', L('whisper'))
 			h4
 			+SettingOption('deny-friend', L('friendAdd'))
 		div.dialog-bar
-			h4.opt= L('ingames')
+			h4.opt!= L('ingames')
 			+SettingOption('auto-ready', L('autoReady'))
 		div.dialog-bar
-			h4.opt= L('etc')
+			h4.opt!= L('etc')
 			+SettingOption('sort-user', L('sortUser'), "width: 200px;")
 			h4
 			+SettingOption('only-waiting', L('onlyWaiting'), "width: 200px;")
@@ -125,23 +125,23 @@ block Middle
 		div.dialog-bar(style='height: 350px;'): table#ranking(style='text-align: center;')
 			thead(style='font-weight: bold; background-color: #DDDDDD;'): tr
 				td(width=30) #
-				td(width=55)= L('LEVEL')
-				td(width=115)= L('nickname')
-				td(width=100)= L('recordScore')
+				td(width=55)!= L('LEVEL')
+				td(width=115)!= L('nickname')
+				td(width=100)!= L('recordScore')
 			tbody
 		div.dialog-bar: h4(style='width: 100%;')#lb-page
 		div.dialog-bar.tail-button
-			button#lb-next(style='margin-right: 6px;')= L('nextPage')
+			button#lb-next(style='margin-right: 6px;')!= L('nextPage')
 			button#lb-me= L('myRank')
 			button#lb-prev= L('prevPage')
 	+Dialog('QuickDiag', 300, 230, L('quickRoom'))
 		div.dialog-bar
-			h4.opt= L('gameMode')
+			h4.opt!= L('gameMode')
 			select#quick-mode
 				- for(var i in locals.MODE)
-					option(value=Number(i))= L('mode' + locals.MODE[i])
+					option(value=Number(i))!= L('mode' + locals.MODE[i])
 		div.dialog-bar(style='height: 59px;')
-			h4(style='height: 45px;')= L('misc')
+			h4(style='height: 45px;')!= L('misc')
 			- for(var i in locals.OPTIONS)
 				+GameOption(i, 'quick')
 		div.dialog-bar
@@ -152,27 +152,27 @@ block Middle
 			button.primaryBtn#quick-ok= L('OK')
 	+Dialog('RoomDiag', 300, 375)
 		div.dialog-bar
-			h4.opt= L('roomTitle')
+			h4.opt!= L('roomTitle')
 			input#room-title(placeholder=(nick || L('guest'))+L('roomDefault'), maxlength=20)
 		div.dialog-bar
-			h4.opt= L('password')
+			h4.opt!= L('password')
 			input#room-pw(type='password', placeholder=L('password'), maxlength=20)
 		div.dialog-bar
-			h4.opt= L('userLimit')
+			h4.opt!= L('userLimit')
 			input#room-limit(type='number', min=2, max=8, step=1, value=8)
 		div.dialog-bar
-			h4.opt= L('gameMode')
+			h4.opt!= L('gameMode')
 			select#room-mode
 				- for(var i in locals.MODE)
-					option(value=Number(i))= L('mode' + locals.MODE[i])
+					option(value=Number(i))!= L('mode' + locals.MODE[i])
 		div.dialog-bar(style='margin-top: -5px; height: 50px;')
 			h4
 			h4#game-mode-expl.dialog-bar-value(style='width: 100%; font-size: 11px;')
 		div.dialog-bar
-			h4.opt= L('numRound')
+			h4.opt!= L('numRound')
 			input#room-round(type='number', min=1, max=10, step=1, value=5)
 		div.dialog-bar
-			h4.opt= L('roundTime')
+			h4.opt!= L('roundTime')
 			select#room-time
 				option(value=10, style='color: #FF4444')
 				option(value=30)
@@ -181,15 +181,15 @@ block Middle
 				option(value=120)
 				option(value=150)
 		div.dialog-bar(style='height: 59px;')
-			h4(style='height: 45px;')= L('misc')
+			h4(style='height: 45px;')!= L('misc')
 			- for(var i in locals.OPTIONS)
 				+GameOption(i, 'room')
 			div.dialog-opt#room-injpick-panel
-				button#room-injeong-pick(style='font-size: 11px;')= L('pickInjeong')
+				button#room-injeong-pick(style='font-size: 11px;')!= L('pickInjeong')
 		div.dialog-bar.tail-button
 			button.primaryBtn#room-ok= L('OK')
 	+Dialog('InjPickDiag', 200, 400, L('pickInjeong'))
-		h4.opt= L('explInjPick')
+		h4.opt!= L('explInjPick')
 		div.dialog-bar
 			button#injpick-all= L('injpickAll')
 			button#injpick-no= L('injpickNo')
@@ -200,7 +200,7 @@ block Middle
 					- if(locals.IJP_EXCEPT.indexOf(item) != -1) return;
 					div(style='float: left; width: 100%;')
 						input(id=name, type='checkbox', style='width: auto;')
-						label(for=name)= LANG['theme_' + item]
+						label(for=name)!= LANG['theme_' + item]
 				- });
 			div.dialog-opt#en-pick-list(style='width: 100%;')
 				- locals.EN_THEME.concat(locals.EN_INJEONG).forEach(function(item){
@@ -208,23 +208,23 @@ block Middle
 					- if(locals.IJP_EXCEPT.indexOf(item) != -1) return;
 					div(style='float: left; width: 100%;')
 						input(id=name, type='checkbox', style='width: auto;')
-						label(for=name)= LANG['theme_' + item]
+						label(for=name)!= LANG['theme_' + item]
 				- });
 		div.dialog-bar.tail-button
 			button.primaryBtn#injpick-ok= L('OK')
 	+Dialog('PracticeDiag', 300, 135)
 		div.dialog-bar
-			h4.opt= L('selectLevel')
+			h4.opt!= L('selectLevel')
 			select#practice-level
-				option(value=0)= L('aiLevel0')
-				option(value=1)= L('aiLevel1')
-				option(value=2, selected)= L('aiLevel2')
-				option(value=3)= L('aiLevel3')
-				option(value=4)= L('aiLevel4')
+				option(value=0)!= L('aiLevel0')
+				option(value=1)!= L('aiLevel1')
+				option(value=2, selected)!= L('aiLevel2')
+				option(value=3)!= L('aiLevel3')
+				option(value=4)!= L('aiLevel4')
 		div.dialog-bar
-			h4.opt= L('team')
+			h4.opt!= L('team')
 			select#ai-team
-				option(value=0, selected)= L('teamSolo')
+				option(value=0, selected)!= L('teamSolo')
 				option(value=1) A
 				option(value=2) B
 				option(value=3) C
@@ -247,14 +247,14 @@ block Middle
 			button#result-save= L('saveReplay')
 	+Dialog('DictionaryDiag', 300, 300, L('dict'))
 		div.dialog-bar
-			h4.opt= L('wpHere')
+			h4.opt!= L('wpHere')
 			input#dict-input(style='width: 183px;', placeholder=L('wpInput'), maxlength=200)
 		div.dialog-bar#dict-output(style='height: 195px; overflow-y: scroll; color: #BBBBBB; background-color: #111111;')
 		div.dialog-bar.tail-button
 			select#dict-theme(style='width: 86px;')
-				option(value="")= L('pickInjeong')
+				option(value="")!= L('pickInjeong')
 				- locals.KO_INJEONG.forEach(function(item){
-					option(value=item)= L('theme_' + item)
+					option(value=item)!= L('theme_' + item)
 				- });
 			button#dict-search= L('SEARCH')
 			button#dict-injeong= L('injeongReq')
@@ -264,14 +264,14 @@ block Middle
 			button#invite-robot= L('inviteRobot')
 	+Dialog('RoomInfoDiag', 300, 365)
 		div.dialog-bar.room-info-head
-			h4.opt= L('roomTitle')
+			h4.opt!= L('roomTitle')
 			h4.dialog-bar-value.ellipse#ri-title
-			h4.opt= L('gameMode')
+			h4.opt!= L('gameMode')
 			h4.dialog-bar-value#ri-mode
-			h4.opt= L('rounds')
+			h4.opt!= L('rounds')
 			h4.dialog-bar-value#ri-round
 		div.dialog-bar(style='padding: 2px 0px; border-top: 1px dashed #CCC; margin: 2px 0px;')
-			h4.opt= L('players')
+			h4.opt!= L('players')
 			h4.dialog-bar-value#ri-limit
 		div.dialog-bar(style='height: 190px; overflow-y: scroll;')
 			div#ri-players(style='width: 100%;')
@@ -280,7 +280,8 @@ block Middle
 	+Dialog('ProfileDiag', 300, 360)
 		div.dialog-bar.profile-head
 		div.dialog-bar
-			h4(style='width: 83px;')= L('place')
+			h4(style='width: 83px;')!
+			= L('place')
 			h4.dialog-bar-value#profile-place
 		div.dialog-bar.profile-record(style='padding: 2px 0px; border-top: 1px dashed #CCCCCC; margin: 2px 0px; height: 175px; overflow-y: scroll;')
 			div.profile-record-field(style='font-weight: bold; text-align: center;')
@@ -297,7 +298,7 @@ block Middle
 			button#profile-handover= L('handover')
 	+Dialog('KickVoteDiag', 300, 160, L('kickVote'))
 		div.dialog-bar#kick-vote-text(style='text-align: center;')
-		div.dialog-bar(style='text-align: center;')= L('kickVoteNotice')
+		div.dialog-bar(style='text-align: center;')!= L('kickVoteNotice')
 		div.dialog-bar
 			+GraphBar('kick-vote-time')
 		div.dialog-bar.tail-button
@@ -305,13 +306,13 @@ block Middle
 			button#kick-vote-yes= L('agree')
 	+Dialog('PurchaseDiag', 300, 205, L('purchase'))
 		div.dialog-bar
-			h4.opt= L('pingBefore')
+			h4.opt!= L('pingBefore')
 			h4.dialog-bar-value.purchase-ping#purchase-ping-before
 		div.dialog-bar
-			h4.opt= L('pingCost')
+			h4.opt!= L('pingCost')
 			h4.dialog-bar-value.purchase-ping#purchase-ping-cost
 		div.dialog-bar
-			h4.opt= L('pingAfter')
+			h4.opt!= L('pingAfter')
 			h4.dialog-bar-value.purchase-ping#purchase-ping-after
 		div.dialog-bar
 			h4#purchase-item-name(style='width: 100%; font-weight: bold;')
@@ -323,10 +324,10 @@ block Middle
 	+Dialog('ReplayDiag', 300, 300, L('replay'))
 		input#replay-file(type='file', style='width: 288px;', accept=".kkt")
 		div.dialog-bar
-			h4.opt= L('replayDate')
+			h4.opt!= L('replayDate')
 			h4.dialog-bar-value#replay-date -
 		div.dialog-bar
-			h4.opt= L('replayPlayers')
+			h4.opt!= L('replayPlayers')
 			h4.dialog-bar-value#replay-players -
 		div.dialog-bar.tail-button
 			button#replay-view= L('replayView')
@@ -334,7 +335,7 @@ block Middle
 		div#chat-log-board(style='height: 475px; font-size: 11px; overflow-y: scroll;')
 	+Dialog('ObtainDiag', 300, 200, L('notice'), true)
 		div.dialog-bar
-			h4(style='width: 100%;')= L('obtained') + '!'
+			h4(style='width: 100%;')!= L('obtained') + '!'
 		div.jt-image#obtain-image(style='margin-left: 110px; width: 80px; height: 80px;')
 		div.dialog-bar#obtain-name(style='text-align: center;')
 		div.dialog-bar.tail-button

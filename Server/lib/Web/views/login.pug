@@ -36,7 +36,7 @@ html
 						a.label(href="/login/" + val.vendor)= L(val.displayName)
 				else
 					a(href="/login/" + val.vendor)
-						button(style="color: " + val.fontColor + "; background-color: " + val.color + ";")= L(val.displayName)
+						button(style="color: " + val.fontColor + "; background-color: " + val.color + ";")!= L(val.displayName)
 		div.login-legal!= L('loginLegal')
 block CSS
 	link(rel='stylesheet', href='/css/oauth-buttons.min.css')
