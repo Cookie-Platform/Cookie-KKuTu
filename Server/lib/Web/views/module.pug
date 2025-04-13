@@ -30,12 +30,17 @@
 	var LANG = locals.locale;
 	var SESSION = locals.session;
 
-	function L(id){
+	function L(id, want_replacement = true){
 		var R = LANG[id] || "(L#"+id+")", i;
 		
 		R = R.toString();
+		if(want_replacement){
 		for(i=1; arguments[i]; i++) R = R.replace(new RegExp("{V"+i+"}", 'g'), arguments[i]);
 		return R.replace(/FA\{[^\}]+\}/g, _L_Replace);
+		}
+		else{
+			return R.replace(/FA\{[^/}]+\}/g, '');
+		}
 	}
 	function _L_Replace(seq){ return "<i class='fa fa-"+seq.slice(3, seq.length-1)+"'></i>"; }
 	
