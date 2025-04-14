@@ -57,7 +57,7 @@ function getIP(request){
 				   request.connection.remoteAddress ||
 				   request.socket.remoteAddress ||
 				   request.connection.socket.remoteAddress).split(',')[0];
-  };
+};
 
 require("../sub/checkpub");
 
