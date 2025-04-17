@@ -5,7 +5,7 @@
 	"SSL_PORT": 443,
 	"TRUST_PROXY": "",
 	"GAME_SERVER_HOST": "127.0.0.2",
-	"KKUTUHOT_PATH": "./data/kkutuhot.json",
+	"KKUTUHOT_PATH": "../data/kkutuhot.json",
 	"PASS":"Your password for management Here",
 	"PG_HOST": "localhost",
 	"PG_USER": "postgres",
