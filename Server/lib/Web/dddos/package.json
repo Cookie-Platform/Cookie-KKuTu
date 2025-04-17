@@ -1,17 +1,17 @@
 {
     "_args": [
-      [
-        {
-          "raw": "dddos@^0.1.1",
-          "scope": null,
-          "escapedName": "dddos",
-          "name": "dddos",
-          "rawSpec": "^0.1.1",
-          "spec": ">=0.1.1 <0.2.0",
-          "type": "range"
-        },
-        "../../../lib"
-      ]
+        [
+            {
+                "raw": "dddos@^0.1.1",
+                "scope": null,
+                "escapedName": "dddos",
+                "name": "dddos",
+                "rawSpec": "^0.1.1",
+                "spec": ">=0.1.1 <0.2.0",
+                "type": "range"
+            },
+            "../../../lib"
+        ]
     ],
     "_from": "dddos@>=0.1.1 <0.2.0",
     "_id": "dddos@0.1.1",
@@ -19,26 +19,26 @@
     "_location": "/dddos",
     "_nodeVersion": "6.2.1",
     "_npmOperationalInternal": {
-      "host": "packages-16-east.internal.npmjs.com",
-      "tmp": "tmp/dddos-0.1.1.tgz_1470474058459_0.5863233460113406"
+        "host": "packages-16-east.internal.npmjs.com",
+        "tmp": "tmp/dddos-0.1.1.tgz_1470474058459_0.5863233460113406"
     },
     "_npmUser": {
-      "name": "ololoepepe",
-      "email": "ololoepepe@gmail.com"
+        "name": "ololoepepe",
+        "email": "ololoepepe@gmail.com"
     },
     "_npmVersion": "3.9.3",
     "_phantomChildren": {},
     "_requested": {
-      "raw": "dddos@^0.1.1",
-      "scope": null,
-      "escapedName": "dddos",
-      "name": "dddos",
-      "rawSpec": "^0.1.1",
-      "spec": ">=0.1.1 <0.2.0",
-      "type": "range"
+        "raw": "dddos@^0.1.1",
+        "scope": null,
+        "escapedName": "dddos",
+        "name": "dddos",
+        "rawSpec": "^0.1.1",
+        "spec": ">=0.1.1 <0.2.0",
+        "type": "range"
     },
     "_requiredBy": [
-      "/"
+        "/"
     ],
     "_resolved": "https://registry.npmjs.org/dddos/-/dddos-0.1.1.tgz",
     "_shasum": "4f369de39fb94e00741cf43ff43ca23ae928a01a",
@@ -46,45 +46,45 @@
     "_spec": "dddos@^0.1.1",
     "_where": "E:\\KKuTu-Korea\\Server\\lib",
     "author": {
-      "name": "Andrey Bogdanov",
-      "email": "ololoepepe@gmail.com",
-      "url": "https://ololoepepe.me"
+        "name": "Andrey Bogdanov",
+        "email": "ololoepepe@gmail.com",
+        "url": "https://ololoepepe.me"
     },
     "bugs": {
-      "url": "https://github.com/ololoepepe/dddos/issues"
+        "url": "https://github.com/ololoepepe/dddos/issues"
     },
-    "dependencies": {},
+    "dependencies": {
+        "dddos": "^0.1.2"
+    },
     "description": "The extra D means it is better than the ddos package.",
-    "devDependencies": {},
     "directories": {},
     "dist": {
-      "shasum": "4f369de39fb94e00741cf43ff43ca23ae928a01a",
-      "tarball": "https://registry.npmjs.org/dddos/-/dddos-0.1.1.tgz"
+        "shasum": "4f369de39fb94e00741cf43ff43ca23ae928a01a",
+        "tarball": "https://registry.npmjs.org/dddos/-/dddos-0.1.1.tgz"
     },
     "gitHead": "4dab41b4e7437efe07d26f5afb53aa49fe26c605",
     "homepage": "https://github.com/ololoepepe/dddos",
     "keywords": [
-      "ddos",
-      "limit",
-      "rate"
+        "ddos",
+        "limit",
+        "rate"
     ],
     "license": "MIT",
     "main": "index.js",
     "maintainers": [
-      {
-        "name": "ololoepepe",
-        "email": "ololoepepe@gmail.com"
-      }
+        {
+            "name": "ololoepepe",
+            "email": "ololoepepe@gmail.com"
+        }
     ],
     "name": "dddos",
-    "optionalDependencies": {},
     "readme": "ERROR: No README data found!",
     "repository": {
-      "type": "git",
-      "url": "git://github.com/ololoepepe/dddos.git"
+        "type": "git",
+        "url": "git://github.com/ololoepepe/dddos.git"
     },
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "version": "0.1.1"
-  }
+}
