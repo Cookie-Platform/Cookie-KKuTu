@@ -291,8 +291,8 @@ Server.get("/", function(req, res){
 			'IJP_EXCEPT': Const.IJP_EXCEPT,
 			'ogImage': "http://kkutu.kr/img/kkutu/logo.png",
 			'ogURL': "http://kkutu.kr/",
-			'ogTitle': "끄투를 새롭게! 파이끄투",
-			'ogDescription': "파이끄투에서 사람들과 함께 끝말잇기 등의 모드로 즐겨봐요!"
+			'ogTitle': "끄투를 새롭게! 쿠키끄투",
+			'ogDescription': "쿠키끄투에서 사람들과 함께 끝말잇기 등의 모드로 즐겨봐요!"
 		});
 	}
 });

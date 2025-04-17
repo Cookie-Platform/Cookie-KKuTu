@@ -17,7 +17,7 @@ const { app, BrowserWindow, screen, globalShortcut } = require('electron');
  
    originalSize = screen.getPrimaryDisplay().workAreaSize;
  
-   const gameUrl = 'http://pie-kkutu.kro.kr/?server=0';
+   const gameUrl = 'http://cookie-kkutu.kro.kr/?server=0';
  
    mainWindow.loadURL(url.format({
      pathname: path.join(__dirname, 'index.html'),
