@@ -104,7 +104,7 @@ exports.RULE = {
 		big: false,
 		ewq: true
 	},
-	'CSQ': { lang: "ko",
+	'JSQ': { lang: "ko",
 		rule: "Jaqwi",
 		opts: [ "ijp" ],
 		time: 1,
@@ -200,6 +200,14 @@ exports.RULE = {
 		ai: false,
 		big: true,
 		ewq: true
+	},
+	'MSQ': { lang: "ko",
+		rule: "Moqwi",
+		opts: [ "ijp" ],
+		time: 1,
+		ai: true,
+		big: false,
+		ewq: false
 	}
 };
 exports.getPreScore = function(text, chain, tr){
@@ -213,6 +221,7 @@ exports.EXAMPLE_TITLE = {
 	'ko': "가나다라마바사아자차",
 	'en': "abcdefghij"
 };
+exports.INIT_VOWELS = [ "ㅏ", "ㅑ", "ㅓ", "ㅕ", "ㅗ", "ㅛ", "ㅜ", "ㅠ", "ㅡ", "ㅣ", "ㅐ", "ㅔ", "ㅒ", "ㅖ", "ㅘ", "ㅙ", "ㅚ", "ㅝ", "ㅞ", "ㅟ", "ㅢ" ];
 exports.INIT_SOUNDS = [ "ㄱ", "ㄲ", "ㄴ", "ㄷ", "ㄸ", "ㄹ", "ㅁ", "ㅂ", "ㅃ", "ㅅ", "ㅆ", "ㅇ", "ㅈ", "ㅉ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ", "○" ];
 exports.MISSION_ko = [ "가", "나", "다", "라", "마", "바", "사", "아", "자", "차", "카", "타", "파", "하" ];
 exports.MISSION_en = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" ];

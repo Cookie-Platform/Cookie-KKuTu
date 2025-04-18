@@ -1,4 +1,15 @@
 This is an error log file of the game server.
 You may use like `tail -f KKUTU_ERROR.log` to watch this.
 이 파일은 끄투 오류 로그를 기록하는 파일입니다.
-`tail -f KKUTU_ERROR.log` 명령어를 사용하여 오류를 확인할 수 있습니다.
+`tail -f KKUTU_ERROR.log` 명령어를 사용하여 오류를 확인할 수 있습니다.:8496 [2025. 4. 18. 오후 11:03:16] ERROR: TypeError: Cannot read properties of undefined (reading 'VOWELS')
+TypeError: Cannot read properties of undefined (reading 'VOWELS')
+    at getConsonants (C:\Users\mulma\Desktop\kkutu\KKuTu\Server\lib\Game\games\moqwi.js:219:25)
+    at C:\Users\mulma\Desktop\kkutu\KKuTu\Server\lib\Game\games\moqwi.js:63:63
+    at exports.Tail.go (C:\Users\mulma\Desktop\kkutu\KKuTu\Server\lib\sub\lizard.js:43:16)
+    at C:\Users\mulma\Desktop\kkutu\KKuTu\Server\lib\Game\games\moqwi.js:253:26
+    at callback (C:\Users\mulma\Desktop\kkutu\KKuTu\Server\lib\sub\collection.js:316:13)
+    at Query.preCB (C:\Users\mulma\Desktop\kkutu\KKuTu\Server\lib\sub\collection.js:298:6)
+    at Query.handleReadyForQuery (C:\Users\mulma\Desktop\kkutu\KKuTu\Server\lib\node_modules\pg\lib\query.js:138:12)
+    at Client._handleReadyForQuery (C:\Users\mulma\Desktop\kkutu\KKuTu\Server\lib\node_modules\pg\lib\client.js:290:19)
+    at Connection.emit (node:events:524:28)
+    at C:\Users\mulma\Desktop\kkutu\KKuTu\Server\lib\node_modules\pg\lib\connection.js:114:12

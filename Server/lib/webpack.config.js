@@ -69,6 +69,7 @@ module.exports = {
 				resolve(gameSourcePath, "ready.js"),
 				resolve(gameSourcePath, "rule_classic.js"),
 				resolve(gameSourcePath, "rule_jaqwi.js"),
+				resolve(gameSourcePath, "rule_moqwi.js"),
 				resolve(gameSourcePath, "rule_crossword.js"),
 				resolve(gameSourcePath, "rule_typing.js"),
 				resolve(gameSourcePath, "rule_hunmin.js"),
