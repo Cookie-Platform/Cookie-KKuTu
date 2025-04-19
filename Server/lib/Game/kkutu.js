@@ -1504,6 +1504,8 @@ function getRewards(mode, score, bonus, rank, all, ss){
 		case 'EDG':
 			rw.score += score * 0.57;
 			break;
+		case 'FRE':
+			return { score: 0, money: 0 }; // 자유는 보상이 없다
 		default:
 			break;
 	}
