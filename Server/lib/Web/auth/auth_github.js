@@ -5,7 +5,8 @@ module.exports.config = {
     color: '#B6B9BD',
     fontColor: '#000000',
     vendor: 'github',
-    displayName: 'withGithub'
+    displayName: 'withGithub',
+    useOAuthButtons: true
 }
 
 module.exports.strategyConfig = {

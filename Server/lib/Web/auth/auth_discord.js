@@ -5,7 +5,8 @@ module.exports.config = {
     color: '#7289DA',
     fontColor: '#FFFFFF',
     vendor: 'discord',
-    displayName: 'withDiscord'
+    displayName: 'withDiscord',
+    useOAuthButtons: true
 }
 
 module.exports.strategyConfig = {
