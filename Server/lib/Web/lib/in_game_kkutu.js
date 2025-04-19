@@ -4750,8 +4750,8 @@ function getCharText(char, subChar, wordLength){
 }
 function getRequiredScore(lv){
 	return Math.round(
-		(!(lv%5)*0.3 + 1) * (!(lv%15)*0.4 + 1) * (!(lv%45)*0.5 + 1) * (
-			120 + Math.floor(lv/5)*60 + Math.floor(lv*lv/225)*120 + Math.floor(lv*lv/2025)*180
+		(!(lv%5)*0.9 + 1) * (!(lv%15)*1.2 + 1) * (!(lv%45)*1.5 + 1) * (
+			500 + Math.floor(lv/5)*60 + Math.floor(lv*lv/225)*120 + Math.floor(lv*lv/2025)*180
 		)
 	);
 }
