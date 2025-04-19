@@ -704,7 +704,7 @@ $(document).ready(function(){
 		var url = URL.createObjectURL(blob);
 		var fileName = "KKuTu" + (
 			date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " "
-			+ date.getHours() + "-" + date.getMinutes() + "-" + date.getSeconds()
+			+ date.getHours() + "-" + date.getMinutes() + "쿠키끄투-리플레이"
 		) + ".ckikkt";
 		var $a = $("<a>").attr({
 			'download': fileName,
