@@ -24,7 +24,6 @@ module.exports.strategy = (process, MainDB, Ajae) => {
         $p.id = profile.id.toString();
         $p.name = profile.username;
         $p.title = profile.displayName;
-        $p.image = profile._json.properties.profile_image;
 
         process(req, accessToken, MainDB, $p, done);
     }

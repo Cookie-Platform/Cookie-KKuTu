@@ -25,7 +25,6 @@ module.exports.strategy = (process, MainDB, Ajae) => {
         $p.id = $p.authType+"-"+profile.id;
         $p.name = profile.displayName;
         $p.title = profile.displayName;
-        $p.image = profile.avatar;
 
         process(req, accessToken, MainDB, $p, done);
     }
