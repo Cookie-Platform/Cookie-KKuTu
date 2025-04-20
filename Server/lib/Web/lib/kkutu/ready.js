@@ -702,7 +702,7 @@ $(document).ready(function(){
 		var date = new Date($rec.time);
 		var blob = new Blob([ JSON.stringify($rec) ], { type: "text/plain" });
 		var url = URL.createObjectURL(blob);
-		var fileName = "KKuTu" + (
+		var fileName = "COOKIEKKuTu" + (
 			date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " "
 			+ date.getHours() + "-" + date.getMinutes() + "쿠키끄투-리플레이"
 		) + ".ckikkt";
