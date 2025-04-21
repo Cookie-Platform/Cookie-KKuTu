@@ -15,4 +15,4 @@
 - [cookedas1](https://github.com/cookedas1) - 쿠키끄투 제작자
 - [TyphoonDANAS](https://github.com/TyphoonDANAS) - VelTu 제작자(참고 - DDDoS 보안 기능)
 - [RevelabsKR](https://github.com/RevelabsKR) - 끄투코리아 제작팀(참고 - DDDoS 보안 기능)
-- [d0ul](https://github.com/d0ul) - 플러스끄투 제작자(참고 - FA)
+- [d0ul](https://github.com/d0ul) - 플러스끄투 제작자(참고 - 공지바)
